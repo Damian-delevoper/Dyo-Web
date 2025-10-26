@@ -1,0 +1,193 @@
+﻿document.addEventListener('DOMContentLoaded', function() {
+    // ======================
+    // SEARCH MODAL FUNCTIONALITY
+    // ======================
+    const searchIcon = document.getElementById('search-icon');
+    const closeIcon = document.getElementById('close-icon');
+    const modal = document.getElementById('search-modal');
+    const searchInput = document.querySelector('.modal-content input[type="text"]');
+    const searchForm = document.getElementById('search-form');
+
+    // Toggle modal visibility
+    function toggleModal() {
+        if (modal.classList.contains('show')) {
+            // Closing animation
+            modal.classList.remove('show');
+            setTimeout(() => {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Restore scrolling
+            }, 300);
+            
+            // Icon states
+            searchIcon.style.opacity = '1';
+            closeIcon.style.opacity = '0';
+        } else {
+            // Opening animation
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            
+            setTimeout(() => {
+                modal.classList.add('show');
+                searchInput.focus();
+                
+                // Mobile keyboard handling
+                if ('virtualKeyboard' in navigator) {
+                    navigator.virtualKeyboard.show();
+                } else if (window.visualViewport) {
+                    window.scrollTo(0, 0);
+                }
+            }, 10);
+            
+            // Icon states
+            searchIcon.style.opacity = '0';
+            closeIcon.style.opacity = '1';
+        }
+    }
+
+    // Event listeners
+    searchIcon.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleModal();
+    });
+    
+    closeIcon.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleModal();
+    });
+
+    // Close modal when clicking outside
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            toggleModal();
+        }
+    });
+
+    // Handle Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('show')) {
+            toggleModal();
+        }
+    });
+
+    // ======================
+    // SEARCH FUNCTIONALITY
+    // ======================
+    async function performSearch(e) {
+        e.preventDefault();
+        
+        const searchQuery = searchInput.value.trim();
+        const submitBtn = searchForm.querySelector('[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+
+        // Validation
+        if (!searchQuery) {
+            alert('Please enter a search term');
+            return;
+        }
+
+        // Loading state
+        submitBtn.innerHTML = '<span class="spinner"></span> Searching...';
+        submitBtn.disabled = true;
+
+        try {
+            const response = await fetch('/Search/Search', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
+                body: JSON.stringify({ searchQuery: searchQuery })
+            });
+
+            if (!response.ok) throw new Error('Network response was not ok');
+            
+            const data = await response.json();
+            console.log('Search results:', data);
+            
+            // TODO: Handle displaying results in your UI
+            // displaySearchResults(data);
+            
+        } catch (error) {
+            console.error('Search error:', error);
+            alert('Search failed. Please try again.');
+        } finally {
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        }
+    }
+
+    // Form submission
+    searchForm.addEventListener('submit', performSearch);
+
+    // ======================
+    // DEPARTMENT TOGGLE FUNCTIONALITY
+    // ======================
+    const departments = document.getElementById('departments');
+    const departmentElements = departments.querySelectorAll('.department');
+
+    // Detect touch devices
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    
+    // Handle department clicks
+    function handleDepartmentClick(e) {
+        const clickedDept = e.currentTarget;
+        
+        // Don't trigger if clicking a link inside
+        if (e.target.closest('a')) return;
+
+        if (!clickedDept.classList.contains('open')) {
+            // Close all others first
+            departmentElements.forEach(dept => {
+                if (dept !== clickedDept) {
+                    dept.classList.remove('open');
+                }
+            });
+            
+            // Then open clicked one
+            setTimeout(() => {
+                clickedDept.classList.add('open');
+            }, isTouchDevice ? 0 : 300); // Instant open on mobile
+        }
+    }
+
+    // Add event listeners
+    departmentElements.forEach(dept => {
+        dept.addEventListener('click', handleDepartmentClick);
+    });
+
+    // Close when clicking outside (for mobile)
+    if (isTouchDevice) {
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.department') && 
+                !e.target.closest('#header')) {
+                departmentElements.forEach(dept => {
+                    dept.classList.remove('open');
+                });
+            }
+        });
+    }
+
+    // ======================
+    // HELPER FUNCTIONS
+    // ======================
+    function debounce(func, wait) {
+        let timeout;
+        return function() {
+            const context = this, args = arguments;
+            clearTimeout(timeout);
+            timeout = setTimeout(() => {
+                func.apply(context, args);
+            }, wait);
+        };
+    }
+
+    // Example: Window resize handler
+    window.addEventListener('resize', debounce(function() {
+        // Handle responsive adjustments
+        if (window.innerWidth >= 768) {
+            departmentElements.forEach(dept => {
+                dept.classList.remove('open');
+            });
+        }
+    }, 250));
+});

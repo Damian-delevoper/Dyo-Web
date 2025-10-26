@@ -1,0 +1,50 @@
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Editor and IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+*.cache
+
+# Backup files
+*~
+*.bak
+*.backup
+*.old
+
+# Node modules (if you add any npm packages later)
+node_modules/
+package-lock.json
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Build directories
+dist/
+build/
+
+# Documentation files that are work-in-progress (keep the final ones)
+WEBSITE_DOCUMENTATION.md
+CLIENT_SUMMARY.md
+CLIENT_SUMMARY_RU.md
