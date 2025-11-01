@@ -166,7 +166,7 @@ body {
     font-size: 16px;
     line-height: 1.6;
     color: #505050;
-    background: url('../img/industrial.png') center/cover no-repeat fixed;
+    background: url('../img/bg.jpeg') center/cover no-repeat fixed;
     background-color: #f4f4f4;
     min-height: 100vh;
 }
@@ -361,7 +361,7 @@ main {
     margin: 0;
     padding: 0;
     list-style: none;
-    background-image: url("../img/industrial-gray.png");
+    background-image: url("../img/gray_bg.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;

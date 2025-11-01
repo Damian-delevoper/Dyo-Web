@@ -9094,7 +9094,8 @@ body {
 	float: left;
 	width: 72px;
 	position: relative;
-	background: #cf0a2c url("gfx/icon-home-white.png") no-repeat center center;
+	/* background: #cf0a2c url("gfx/icon-home-white.png") no-repeat center center; */
+	background: #cf0a2c;
 	transition: all .4s ease
 }
 
@@ -9399,15 +9400,11 @@ article:hover {
 
 .breadcrumbs li a:before {
 	display: inline-block;
-	font: normal normal normal 14px/1 FontAwesome;
-	font-size: inherit;
-	text-rendering: auto;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	content: "";
-	content: "";
+	content: ">";
 	margin-left: 10px;
-	margin-right: 10px
+	margin-right: 10px;
+	font-weight: bold;
+	color: #cf0a2c;
 }
 
 .breadcrumbs li a:hover {
@@ -9425,7 +9422,8 @@ article:hover {
 .pdf-link {
 	display: flex;
 	min-height: 72px;
-	background: url("gfx/icon-pdf.png") no-repeat 0 20%;
+	/* background: url("gfx/icon-pdf.png") no-repeat 0 20%; */
+	background-color: #f0f0f0;
 	background-size: auto 48px;
 	padding: 6px 6px 16px 44px;
 	align-items: center;
@@ -9495,11 +9493,14 @@ article:hover {
 }
 
 .swiper-container#main-slider {
-	height: calc(100vh - 128px);
-	min-height: 400px;
+	width: 100%;
+	aspect-ratio: 3 / 2; /* 1.5:1 matches most slider images (1920x1280) */
+	max-height: 900px; /* Increased from 700px to reduce image scaling and improve quality */
+	min-height: 450px;
 	color: #fff;
 	background-color: #505050;
 	font-size: 40px;
+	overflow: hidden; /* Ensure clean edges */
 	line-height: 1.1;
 	font-weight: 600;
 	color: #fff
@@ -10496,13 +10497,36 @@ article:hover {
 	border: 0 none
 }
 
+.footer-contact {
+	padding: 24px 0;
+	margin-bottom: 24px;
+}
+
+.footer-contact p {
+	margin: 0;
+	font-size: 16px;
+	color: #505050;
+}
+
+.footer-contact a {
+	color: #cf0a2c;
+	text-decoration: none;
+	transition: color 0.3s ease;
+}
+
+.footer-contact a:hover {
+	color: #a00822;
+	text-decoration: underline;
+}
+
 #stage {
 	position: fixed;
 	left: 0;
 	right: 0;
 	top: 0;
 	bottom: 0;
-	background: rgba(0, 0, 0, .64) url("gfx/loading.gif") no-repeat center center;
+	/* background: rgba(0, 0, 0, .64) url("gfx/loading.gif") no-repeat center center; */
+	background: rgba(0, 0, 0, .64);
 	background-size: 60px auto;
 	z-index: 9000;
 	display: flex;
@@ -10773,7 +10797,9 @@ article:hover {
 	}
 
 	.swiper-container#main-slider {
-		height: 520px;
+		aspect-ratio: 3 / 2; /* Maintain aspect ratio */
+		max-height: 650px; /* Increased from 500px for better quality */
+		min-height: 400px;
 		font-size: 32px
 	}
 
@@ -10997,7 +11023,10 @@ article:hover {
 	}
 
 	.swiper-container#main-slider {
-		font-size: 24px
+		aspect-ratio: 3 / 2; /* Maintain aspect ratio */
+		font-size: 24px;
+		max-height: 500px; /* Increased from 400px for better quality */
+		min-height: 320px
 	}
 
 	.swiper-container#main-slider .swiper-slide {
@@ -11440,7 +11469,11 @@ article.icon-cogs .image-holder:before {
 }
 
 .swiper-container#main-slider {
-	min-height: 540px
+	width: 100%;
+	aspect-ratio: 3 / 2; /* 1.5:1 matches most slider images (1920x1280) */
+	max-height: 900px; /* Increased from 700px to reduce image scaling and improve quality */
+	min-height: 450px;
+	overflow: hidden; /* Ensure clean edges */
 }
 
 .swiper-container#main-slider .buttons-holder {
@@ -11647,7 +11680,8 @@ article.icon-cogs .image-holder:before {
 	position: absolute;
 	right: 0;
 	top: 0;
-	background: url("gfx/bg-tds-card.jpg") no-repeat center center;
+	/* background: url("gfx/bg-tds-card.jpg") no-repeat center center; */
+	background-color: #f8f8f8;
 	background-size: cover
 }
 
@@ -11673,7 +11707,8 @@ article.icon-cogs .image-holder:before {
 }
 
 .section#sector-with-children {
-	height: calc(100vh - 128px);
+	height: 55vh;
+	max-height: 600px;
 	padding: 0;
 	background-color: #505050;
 	display: flex;
@@ -11824,7 +11859,9 @@ article.icon-cogs .image-holder:before {
 	}
 
 	.swiper-container#main-slider {
-		min-height: 400px
+		aspect-ratio: 3 / 2; /* Maintain aspect ratio on mobile */
+		min-height: 280px;
+		max-height: 420px /* Increased for better quality */
 	}
 
 	.swiper-container#main-slider .buttons-holder {

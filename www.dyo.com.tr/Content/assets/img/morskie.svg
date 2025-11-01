@@ -1,0 +1,18 @@
+<svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="40" cy="40" r="36" fill="#cf0a2c" opacity="0.08"/>
+  <circle cx="40" cy="40" r="32" fill="none" stroke="#cf0a2c" stroke-width="1" opacity="0.3"/>
+  
+  <!-- Icon content -->
+    <!-- Marine/wave icon -->
+  <!-- Waves -->
+  <path d="M15 45 Q25 38 35 45 T55 45 T75 45" fill="none" stroke="#cf0a2c" stroke-width="2.5"/>
+  <path d="M15 50 Q25 43 35 50 T55 50 T75 50" fill="none" stroke="#cf0a2c" stroke-width="2.5"/>
+  <!-- Ship/Sail -->
+  <path d="M40 35 L40 50 L32 50" fill="none" stroke="#cf0a2c" stroke-width="2.5"/>
+  <path d="M40 35 L48 50 L40 50" fill="#cf0a2c" opacity="0.3"/>
+  <line x1="40" y1="35" x2="40" y2="50" stroke="#cf0a2c" stroke-width="2"/>
+  <!-- Ocean depth lines -->
+  <line x1="20" y1="52" x2="60" y2="52" stroke="#cf0a2c" stroke-width="1" opacity="0.5"/>
+  <line x1="22" y1="54" x2="58" y2="54" stroke="#cf0a2c" stroke-width="1" opacity="0.3"/>
+</svg>

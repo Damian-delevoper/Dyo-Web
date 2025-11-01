@@ -1,0 +1,16 @@
+<svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="40" cy="40" r="36" fill="#cf0a2c" opacity="0.08"/>
+  <circle cx="40" cy="40" r="32" fill="none" stroke="#cf0a2c" stroke-width="1" opacity="0.3"/>
+  
+  <!-- Icon content -->
+    <!-- Car/Automotive icon -->
+  <rect x="20" y="36" width="40" height="18" rx="3" fill="none" stroke="#cf0a2c" stroke-width="2.5"/>
+  <circle cx="30" cy="58" r="6" fill="none" stroke="#cf0a2c" stroke-width="2.5"/>
+  <circle cx="30" cy="58" r="3" fill="#cf0a2c"/>
+  <circle cx="50" cy="58" r="6" fill="none" stroke="#cf0a2c" stroke-width="2.5"/>
+  <circle cx="50" cy="58" r="3" fill="#cf0a2c"/>
+  <rect x="28" y="40" width="24" height="10" fill="#cf0a2c" opacity="0.2"/>
+  <path d="M20 36 L24 28 L36 28 L40 36" fill="none" stroke="#cf0a2c" stroke-width="2.5"/>
+  <line x1="40" y1="36" x2="40" y2="54" stroke="#cf0a2c" stroke-width="2"/>
+</svg>

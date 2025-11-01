@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="ru">
+ <head>
+    <link rel="stylesheet" href="napravlenya.css">
+    <style>
+        #text-holder {
+            text-align: center;
+            padding: 40px 20px;
+            color: #666;
+            font-style: italic;
+            background: #f9f9f9;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+    </style>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Продукция | DYO</title>
+    <meta name="description" content="Продукция DYO - промышленные покрытия и лакокрасочные материалы." />
+  </head>
+  <body>
+  <header id="header">
+    <div class="container">
+            <a href="../../../../www.dyo.com.tr/ru.html" id="logo">
+                <img src="../../../../www.dyo.com.tr/Content/assets/img/logo.png" alt="dyo logo" />
+      </a>
+      <ul id="main-menu">
+        <li>
+                    <a href="../../../../www.dyo.com.tr/ru.html">Главная страница</a>
+        </li>
+        <li class="has-sub-menu">
+          <a href="../../o-kompan.html">О КОМПАНИИ</a>
+          <ul class="sub-menu">
+                        <li>
+                            <a href="../../o-kompan/o-nas.html">О нас</a>
+                        </li>
+            <li>
+              <a href="../../o-kompan/zavod-dyo-v-rossii.html">Завод DYO в России</a>
+            </li>
+          </ul>
+        </li>
+        <li class="has-sub-menu">
+                    <a href="../../../../www.dyo.com.tr/ru.html">НАПРАВЛЕНИЯ</a>
+          <ul class="sub-menu">
+            <li>
+                            <a href="../promyshlennye-pokrytiya.html">Промышленные покрытия</a>
+                        </li>
+                        <li>
+                            <a href="../antikorrozionnye-pokrytiya.html">Антикоррозионные покрытия</a>
+                        </li>
+                        <li>
+                            <a href="../poroshkovye-pokrytiya.html">Порошковые покрытия</a>
+                        </li>
+                        <li>
+                            <a href="../morskie-pokrytiya.html">Морские покрытия</a>
+                        </li>
+                        <li>
+                            <a href="../lakokrasochnye-pokrytiya-dlya-rulonnogo-metalla.html">Лакокрасочные покрытия для рулонного металла</a>
+            </li>
+            <li>
+                            <a href="../materialy-dlya-remonta-zdaniy-iz-metallokonstruktsiy.html">Материалы для ремонта зданий из металлоконструкций</a>
+            </li>
+            <li>
+                            <a href="../avtoremontnye-lakokrasochnye-materialy.html">Авторемонтные лакокрасочные материалы</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+    <div id="content">
+<section class="section">
+    <div class="container">
+    <ul class="breadcrumbs">
+                    <li><a href="../../../../www.dyo.com.tr/ru.html">Главная страница</a></li>
+                    <li><a href="../promyshlennye-pokrytiya.html">Промышленные покрытия</a></li>
+            <li><a href="produkty.html">Продукция</a></li>
+    </ul>
+
+        <h1 class="medium-space-bottom">Продукция</h1>
+
+        <div id="products">
+            <input id="product-search" type="text" name="search" placeholder="Введите название продукта, который хотите найти" class="form-control" />
+            
+            <!-- Filter Sidebar -->
+            <div id="product-filters">
+                <div class="product-filter" data-filter="filter110" data-text="">
+                    <h5>Область применения</h5>
+                    <ul>
+                        <li class="checked">Все</li>
+                        <li data-filter="851" data-text="">Промышленные конструкции</li>
+                        <li data-filter="852" data-text="">Мостовые конструкции</li>
+                        <li data-filter="853" data-text="">Металлические конструкции</li>
+                        <li data-filter="854" data-text="">Резервуары и емкости</li>
+                        <li data-filter="855" data-text="">Трубопроводы</li>
+                        <li data-filter="856" data-text="">Морские конструкции</li>
+                    </ul>
+                </div>
+                <div class="product-filter" data-filter="filter111" data-text="">
+                    <h5>Тип покрытия</h5>
+                    <ul>
+                        <li class="checked">Все</li>
+                        <li data-filter="900" data-text="">Эпоксидные</li>
+                        <li data-filter="905" data-text="">Полиуретановые</li>
+                        <li data-filter="895" data-text="">Акрил-полиуретановые</li>
+                        <li data-filter="903" data-text="">Этилсиликатные</li>
+                        <li data-filter="909" data-text="">Виниловые</li>
+                        <li data-filter="896" data-text="">Алкидные</li>
+                    </ul>
+                </div>
+                <div class="product-filter" data-filter="filter112" data-text="">
+                    <h5>Свойства покрытия</h5>
+                    <ul>
+                        <li class="checked">Все</li>
+                        <li data-filter="910" data-text="">Грунты</li>
+                        <li data-filter="912" data-text="">Финишные покрытия</li>
+                        <li data-filter="911" data-text="">Промежуточные покрытия</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div id="product-items">
+                <div id="product-items-top">
+                    <p><span id="product-counter">35</span> Продукт найден</p>
+                    <button id="btn-clear-filters" class="btn btn-transparent">Очистить фильтры</button>
+                </div>
+                <p id="text-holder"></p>
+                <ul id="current-filters"></ul>
+                        
+                <div id="product-list">
+                            <div class="product-thumbnail" data-filters="851,900,910">
+                                <h3>C40 DYOPOX SF PHENOLİC</h3>
+                                <p>DYOPOX SF PHENOLIC - двухкомпонентное, фенол-эпоксидное покрытие полиаминного отверждения, не содержащее растворителей, с высоким сухим остатком. Высокая химическая стойкость (дизтопливо, вода, органические растворители и др). Нулевое содержание летучих органических соединений.</p>
+    </div>
+
+                            <div class="product-thumbnail" data-filters="851,900,912">
+                                <h3>C05 DYOPOX MS TOPCOAT</h3>
+                                <p>Двухкомпонентное эпоксидное покрытие полиаминного отверждения с высоким сухим остатком. Короткий период полимеризации. Хорошая химическая стойкость. Высокая эластичность. Финишное покрытие в системе антикоррозийной защиты стали и бетона.</p>
+    </div>
+
+                            <div class="product-thumbnail" data-filters="851,900,912">
+                                <h3>C10 DYOPOX DTMCOAT</h3>
+                                <p>Двухкомпонентное эпоксидное покрытие полиаминного отверждения с высоким сухим остатком. Низкое содержание летучих органических соединений. Короткий период полимеризации. Хорошая химическая стойкость. Самостоятельное или финишное покрытие в системе антикоррозийной защиты стали и бетона.</p>
+    </div>
+
+                            <div class="product-thumbnail" data-filters="854,900,912">
+                                <h3>С21 DYOPOX PTW</h3>
+                                <p>Двухкомпонентное толстослойное эпоксидное покрытие с аминным отверждением, не содержащее растворитель. Хорошая устойчивость к сырой нефти, морской и пресной воде, различным химикатам. Не содержит растворителей. Пригодно для контакта с пищевыми продуктами и питьевой водой. Самостоятельное покрытие для антикоррозионной защиты емкостного технологического оборудования и трубопроводов.</p>
+    </div>
+
+                            <div class="product-thumbnail" data-filters="851,905,912">
+                                <h3>C60 DYOPOL HIGH GLOSS TOPCOAT</h3>
+                                <p>Двухкомпонентное полиуретановое покрытие с высоким сухим остатком отверждаемое алифатическим изоцианатом. Высокоглянцевый. Короткий период отверждения. Повышенная эластичность. Превосходное сохранение цвета и глянца. Устойчив к воздействию агрессивных сред. Финишное покрытие в системах антикоррозийной защиты стали.</p>
+    </div>
+
+                            <div class="product-thumbnail" data-filters="851,905,912">
+                                <h3>C60-7202 DYOPOL HIGH GLOSS TOPCOAT</h3>
+                                <p>Двухкомпонентное полиуретановое покрытие с высоким сухим остатком отверждаемое алифатическим изоцианатом. Высокоглянцевый. Короткий период отверждения. Повышенная эластичность. Превосходное сохранение цвета и глянца. Устойчив к воздействию агрессивных сред. Финишное покрытие в системах антикоррозийной защиты стали.</p>
+    </div>
+
+                            <div class="product-thumbnail" data-filters="851,895,912">
+                                <h3>C63 DYOPOL DTMCOAT</h3>
+                                <p>Двухкомпонентная акрил-полиуретановая грунт-эмаль с высоким сухим остатком, отверждаемая алифатическим изоцианатом. Содержит фосфат цинка. Короткий период отверждения. Повышенная эластичность. Превосходное сохранение цвета и глянца. Устойчив к воздействию агрессивных сред. Самостоятельное и (или) финишное покрытие в системах антикоррозийной защиты стали и бетона.</p>
+    </div>
+
+                            <div class="product-thumbnail" data-filters="851,896,912">
+                                <h3>С80 DYOKID HS TOPCOAT</h3>
+                                <p>Однокомпонентная эмаль на основе модифицированной алкидной смолы. Быстрое высыхание. Разработано для эксплуатации в условиях средней коррозионной активности. Финишное покрытие в системе покрытий для антикоррозийной защиты стали и бетона.</p>
+    </div>
+
+                            <div class="product-thumbnail" data-filters="851,900,910">
+                                <h3>P05 DYOPOX ZINC PRIMER</h3>
+                                <p>Двухкомпонентный эпоксидный грунт с высоким содержанием цинка. Разработан для эксплуатации в условиях высокой коррозионной нагрузкой. Короткий период отверждения. Соответствует требованиям SSPC, часть 20, уровня I, тип II (не менее 85% цинка). Грунт в системе покрытий для антикоррозийной защиты стали.</p>
+    </div>
+
+                            <div class="product-thumbnail" data-filters="851,903,910">
+                                <h3>P98 DYOHEAT ETSCOAT</h3>
+                                <p>Двухкомпонентный грунт на основе этилсиликата с высоким содержанием цинка. Обладает термостойкостью до 400 °С. Разработано для защиты поверхностей подверженных высоким температурам. Разработан для эксплуатации в условиях высокой коррозионной нагрузки. Соответствует требованиям ISO 12944-5 и SSPC часть 20, уровень I, тип I (содержание цинка не менее 85%. Грунт-эмаль для антикоррозийной защиты стали.</p>
+    </div>
+
+                            <div class="product-thumbnail" data-filters="851,900,910">
+                                <h3>R02-7C83 DYOPOX HB COAT</h3>
+                                <p>Двухкомпонентное эпоксидное грунтовочное/промежуточное покрытие с высоким сухим остатком. Подходит для нанесения «мокрый по мокрому». Содержит фосфат цинка. Короткий период отверждения при низких температурах. Грунтовочный слой в системе покрытий для антикоррозийной защиты стали.</p>
+    </div>
+
+                            <div class="product-thumbnail" data-filters="851,900,910">
+                                <h3>R02-7561 DYOPOX HB COAT</h3>
+                                <p>Двухкомпонентное эпоксидное покрытие полиаминного отверждения с высоким сухим остатком. Низкое содержание летучих органических соединений. Короткий период полимеризации. Содержит фосфат цинка. Разработано для эксплуатации в условиях высокой коррозионной активности. Грунт и/или промежуточный слой в системе покрытий для антикоррозийной защиты стали и бетона.</p>
+    </div>
+
+                            <div class="product-thumbnail" data-filters="851,900,910">
+                                <h3>R03-7879 DYOPOX HB COAT-F MIOX</h3>
+                                <p>Двухкомпонентное эпоксидное покрытие полиаминного отверждения с высоким сухим остатком. Низкое содержание летучих органических соединений. Содержит фосфат цинка и слюдяной оксид железа. Разработано для эксплуатации в условиях высокой коррозионной активности. Грунт и/или промежуточный слой в системе покрытий для антикоррозийной защиты стали и бетона.</p>
+    </div>
+
+                            <div class="product-thumbnail" data-filters="851,900,910">
+                                <h3>R10 DYOPOX MIOP MIDCOAT</h3>
+                                <p>Двухкомпонентное эпоксидное покрытие полиаминного отверждения с высоким сухим остатком. Обладает повышенной гибкостью. Содержит фосфат цинка и слюдяной оксид железа. Разработано для эксплуатации в условиях высокой коррозионной активности. Грунт и/или промежуточный слой в системе покрытий для антикоррозийной защиты стали и бетона.</p>
+    </div>
+
+                            <div class="product-thumbnail" data-filters="851,900,910">
+                                <h3>R30 DYOPOX GF COAT</h3>
+                                <p>Двухкомпонентное эпоксидное покрытие с высоким сухим остатком, армированное стеклянными чешуйками. Разработано для эксплуатации в условиях экстремально высокой коррозионной активности. Отличная стойкость к истиранию. Износостойкое, ударопрочное. Содержит стеклянные чешуйки. Стойкое к морской воде, нефти и химикатом. Грунт и/или промежуточный слой в системе покрытий для антикоррозийной защиты стали и бетона.</p>
+    </div>
+
+                            <div class="product-thumbnail" data-filters="851,900,910">
+                                <h3>R72 DYOPOX MIDCOAT-T</h3>
+                                <p>Двухкомпонентное поверхностно толерантное эпоксидное покрытие с высоким сухим остатком. Поверхностно толерантное. Низкое содержание летучих органических соединений. Содержит фосфат цинка и железистую слюдку. Разработано для эксплуатации в условиях высокой коррозионной активности. Грунт и/или промежуточный слой в системе покрытий для антикоррозийной защиты стали и бетона.</p>
+    </div>
+
+                            <div class="product-thumbnail" data-filters="854,900,912">
+                                <h3>С11 DYOPOX SF TOPCOAT</h3>
+                                <p>Двухкомпонентное эпоксидное покрытие полиаминного отверждения с высоким сухим остатком. Отличается высокой химической стойкостью (нефть и нефтепродукты, растворители, различные химикаты). Не содержит летучие органические соединения. Высокоэластичное покрытие. Самостоятельное покрытие для антикоррозионной защиты емкостного технологического оборудования и трубопроводов.</p>
+    </div>
+
+                            <div class="product-thumbnail" data-filters="851,903,912">
+                                <h3>С90 DYOHEAT TOPCOAT 600</h3>
+                                <p>Однокомпонентная термостойкая эмаль на основе силиконовой смолы. Обладает термостойкостью до 600 °С. Разработано для защиты поверхностей подверженных высоким температурам. Грунт-эмаль для антикоррозийной защиты стали.</p>
+    </div>
+
+                            <div class="product-thumbnail" data-filters="851,903,912">
+                                <h3>С92 DYOHEAT TOPCOAT 250</h3>
+                                <p>Однокомпонентная термостойкая эмаль на основе силиконовой смолы. Обладает термостойкостью до 250 °С. Разработано для защиты поверхностей подверженных высоким температурам. Грунт-эмаль для антикоррозийной защиты стали.</p>
+    </div>
+
+                            <div class="product-thumbnail" data-filters="851,900,910">
+                                <h3>P01-7E44 DYOPOX FAST PRIMER</h3>
+                                <p>Двухкомпонентный эпоксидный грунт с содержанием фосфата цинка. Может наноситься на стальные, оцинкованные и алюминиевые поверхности. Короткий период отверждения. Содержит фосфат цинка. Грунт в системе покрытий для антикоррозийной защиты стальных, оцинкованных и алюминиевых поверхностей.</p>
+    </div>
+
+                            <div class="product-thumbnail" data-filters="851,900,910">
+                                <h3>P02 DYOPOX SHOP PRIMER</h3>
+                                <p>Двухкомпонентный эпоксидный грунт полиамидного отверждения с содержанием фосфата цинка. Содержит фосфат цинка. Короткий период отверждения. Позволяет производить сварку огрунтованных конструкций. Межоперационный грунт, а также грунт в системе покрытий для антикоррозийной защиты стали.</p>
+    </div>
+
+                            <div class="product-thumbnail" data-filters="851,900,910">
+                                <h3>P07 DYOPOX ZINC PRIMER-L</h3>
+                                <p>Двухкомпонентный эпоксидный грунт с высоким содержанием цинка. Разработан для эксплуатации в условиях высокой коррозионной нагрузкой. Короткий период отверждения. Соответствует требованиям SSPC, часть 20, уровня III, тип II. Грунт в системе покрытий для антикоррозийной защиты стали.</p>
+    </div>
+
+                            <div class="product-thumbnail" data-filters="851,905,910">
+                                <h3>P61 DYOPOL PRIMER</h3>
+                                <p>Двухкомпонентная полиуретановая грунтовка с высоким сухим остатком. Содержит фосфат цинка. Короткий период отверждение. Низкое содержание летучих веществ. Грунтовочный или промежуточный слой в системах антикоррозийной защиты стали.</p>
+    </div>
+
+                            <div class="product-thumbnail" data-filters="851,900,910">
+                                <h3>DYOPOX UNDERWATER MASTIC</h3>
+                                <p>Двухкомпонентное толстослойное эпоксидное покрытие с полиамидным отверждением, не содержащее растворитель. Разработано специально для нанесения под водой. Покрытие отверждается под водой и предоставляет защиту от коррозии. Материал также стоек к абразивным нагрузкам. Применяется, в том числе, как ремонтный состав ручного нанесения на металлические конструкции, эксплуатируемые под водой и зонах переменного смачивания. Отличная стойкость к истиранию. Износостойкое, ударопрочное. Допускается нанесение под водой. Стойкое в морской воде. Грунт и/или грунт-эмаль в системе покрытий для антикоррозийной защиты стали и бетона, эксплуатируемых под водой и зонах переменного смачивания.</p>
+    </div>
+
+                            <div class="product-thumbnail" data-filters="854,900,912">
+                                <h3>С20 DYOPOX PHENOLIC</h3>
+                                <p>Двухкомпонентное фенол-эпоксидное (новолачное) покрытие с высоким сухим остатком. Отличается высокой химической стойкостью (нефть и нефтепродукты, растворители, различные химикаты). Низкое содержание летучих органических соединений. Выдерживает высокие температуры, устойчив к горячей воде. Сертифицирован под авиатопливо. Самостоятельное покрытие для антикоррозионной защиты емкостного технологического оборудования и трубопроводов.</p>
+    </div>
+
+                            <div class="product-thumbnail" data-filters="851,895,912">
+                                <h3>C61 DYOPOL EHS TOPCOAT</h3>
+                                <p>Двухкомпонентное акрил-полиуретановое покрытие с высоким сухим остатком отверждаемое алифатическим изоцианатом. Низкий уровень ЛОС. Короткий период отверждения. Повышенная эластичность. Превосходное сохранение цвета и глянца. Устойчив к воздействию агрессивных сред. Финишное покрытие в системах антикоррозийной защиты стали.</p>
+    </div>
+
+                            <div class="product-thumbnail" data-filters="851,896,912">
+                                <h3>С83 DYOKYD TOPCOAT-83</h3>
+                                <p>Однокомпонентная грунт-эмаль на основе алкидной смолы. Быстрое высыхание. Наносится непосредственно на стальные и бетонные поверхности. Самостоятельное или финишное покрытие для антикоррозийной защиты стали и бетона.</p>
+    </div>
+
+                            <div class="product-thumbnail" data-filters="851,900,910">
+                                <h3>P09 DYOPOX ZINC PRIMER-08</h3>
+                                <p>Двухкомпонентный эпоксидный грунт с высоким содержанием цинка. Разработан для эксплуатации в условиях высокой коррозионной нагрузкой. Короткий период отверждения. Соответствует требованиям SSPC, часть 20, уровня II, тип II (не менее 80% цинка). Грунт в системе покрытий для антикоррозийной защиты стали.</p>
+    </div>
+
+                            <div class="product-thumbnail" data-filters="851,900,910">
+                                <h3>P10 DYOPOX HB PRIMER</h3>
+                                <p>Двухкомпонентный эпоксидный грунт полиаминного отверждения с высоким сухим остатком. Низкое содержание летучих органических соединений. Короткий период отверждения. Содержит фосфат цинка. Для среды с высокой коррозионной активностью. Грунт и/или промежуточный слой в системе покрытий для антикоррозийной защиты стали.</p>
+    </div>
+
+                            <div class="product-thumbnail" data-filters="851,909,910">
+                                <h3>P20 DYO QUICK PRIMER</h3>
+                                <p>DYO QUICK PRIMER это быстросохнущая травильная грунтовка на виниловой основе. Короткий период высыхания. Быстрый монтаж. Грунтовка в системах покрытий для защиты стали, нержавеющей стали, оцинкованной стали или алюминия.</p>
+    </div>
+
+                            <div class="product-thumbnail" data-filters="851,896,910">
+                                <h3>P81 DYOKYD HB PRIMER</h3>
+                                <p>Однокомпонентный быстросохнущий толстослойный грунт на основе модифицированной алкидной смолы. Быстрое высыхание. Разработано для эксплуатации в условиях средней коррозионной активности. Грунт в системе покрытий для антикоррозийной защиты стали и бетона.</p>
+    </div>
+
+                            <div class="product-thumbnail" data-filters="851,900,910">
+                                <h3>R73 DYOPOX MIDCOAT-71</h3>
+                                <p>Двухкомпонентное эпоксидное покрытие полиаминного отверждения с высоким сухим остатком. Низкое содержание летучих органических соединений. Поверхностно толерантное покрытие. Содержит фосфат цинка. Разработано для эксплуатации в условиях высокой коррозионной активности. Грунт и/или промежуточный слой в системе покрытий для антикоррозийной защиты стали и бетона.</p>
+    </div>
+
+                            <div class="product-thumbnail" data-filters="851,896,912">
+                                <h3>С95 DYO ACRYLIC DTMCOAT</h3>
+                                <p>Однокомпонентная грунт-эмаль на основе акриловой смолы. Быстрое высыхание. Наносится непосредственно на стальные и бетонные поверхности. Самостоятельное или финишное покрытие для антикоррозийной защиты стали и бетона.</p>
+    </div>
+
+                            <div class="product-thumbnail" data-filters="851,900,910">
+                                <h3>P15 DYOPOX HB PRIMER-15</h3>
+                                <p>Двухкомпонентный эпоксидный грунт с высоким сухим остатком. Низкое содержание летучих органических соединений. Короткий период отверждения. Грунт и/или промежуточный слой в системе покрытий для антикоррозийной защиты стали.</p>
+    </div>
+
+                            <div class="product-thumbnail" data-filters="851,900,910">
+                                <h3>R04 DYOPOX HB COAT-F</h3>
+                                <p>Двухкомпонентное эпоксидное покрытие с высоким сухим остатком. Низкое содержание летучих органических соединений. Короткий период полимеризации. Содержит фосфат цинка. Разработано для эксплуатации в условиях высокой коррозионной активности. Грунт и/или промежуточный слой в системе покрытий для антикоррозийной защиты стали и бетона.</p>
+    </div>
+    </div>
+    </div>
+        </div>
+    </div>
+</section>
+    </div>
+
+<footer id="footer">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 text-center">
+        <div class="footer-contact">
+          <p><a href="mailto:info@dyo.com">info@dyo.com</a> | <a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
+        </div>
+      </div>
+    </div>
+    <ul class="footer-menu">
+            <li><a href="../../o-kompan.html">О компании</a></li>
+        </ul>
+    <div class="row">
+          <div class="col-12 text-center">
+            <p>&copy; DYO. Все права защищены.</p>
+        </div>
+      </div>
+  </div>
+</footer>
+
+    <script type="text/javascript">
+        var currentLang = "ru";
+    </script>
+    <script src="https://endustriyel.dyo.com.tr/Scripts/site?v=OcZ-fI1v7yJ3rfqGDhX5Q7tL-jwVwwNKouUgg2JQ7rg1"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var filters = [];
+            var products = $('#product-list').find('.product-thumbnail');
+            var productFilters = $('#product-filters').find('.product-filter');
+            var productCounter = $('#product-counter');
+            var productSearch = $('#product-search');
+            var btnClearFilters = $('#btn-clear-filters');
+            var filterParameters = [];
+            var generalText = $(productFilters[0]).data("text");
+            var textHolder = $('#text-holder');
+            var currentFilters = $('#current-filters');
+
+            if (generalText.length > 0) {
+                textHolder.text(generalText).show();
+            }
+
+            function applyFilters() {
+                filters = [];
+                currentFilters.empty();
+                var checkedCount = 0;
+                var text = "";
+                productFilters.each(function () {
+                    var elem = $(this);
+                    var dataFilter = elem.data("filter");
+                    filters[dataFilter] = [];
+                    elem.find('li.checked').each(function () {
+                        var li = $(this);
+                        if (li.index() !== 0) {
+                            filters[dataFilter].push(li.data("filter"));
+                            currentFilters.append('<li data-filters="' + li.data("filter") + '">' + li.text() + '</li>');
+                            checkedCount += 1;
+                            if (checkedCount == 1) {
+                                text = li.data("text");
+                            }
+                        }
+                    });
+                });
+
+                var finalText = "";
+
+                if (checkedCount === 1 && text !== "") {
+                    finalText = text;
+                } else {
+                    finalText = generalText;
+                }
+
+                if (finalText.length < 1) {
+                    textHolder.empty().hide();
+                } else {
+                    textHolder.text(finalText).show();
+                }
+
+                var visibleCounter = 0;
+                $.each(products, function () {
+                    var product = $(this);
+                    var singleProductFilters = (product.data("filters") + "").split(",");
+                    var isVisible = true;
+                    for (var filter in filters) {
+                        if (isVisible && filters[filter].length > 0) {
+                            var found = false;
+                            $.each(filters[filter], function (index, i) {
+                                if (!found) {
+                                    found = singleProductFilters.indexOf("" + i) > -1;
+                                }
+                            });
+                            isVisible = found;
+                        }
+                    }
+
+                    if (isVisible) {
+                        product.addClass('listed').show();
+                        visibleCounter += 1;
+                    } else {
+                        product.removeClass('listed').hide();
+                    }
+                });
+
+                if (currentFilters.find('li').length > 0) {
+                    btnClearFilters.show();
+                } else {
+                    btnClearFilters.hide();
+                }
+
+                productCounter.text(visibleCounter);
+
+                //hide empty filters
+                productFilters.find('li').each(function () {
+                    var elem = $(this);
+                    if (elem.index() !== 0 && !elem.hasClass('checked')) {
+                        var found = false;
+                        $.each(products, function () {
+                            var product = $(this);
+                            if (!found && product.hasClass('listed')) {
+                                var singleProductFilters = (product.data("filters") + "").split(",");
+                                var listFilter = elem.data("filter");
+                                found = singleProductFilters.indexOf("" + listFilter) > -1;
+                            }
+                        });
+
+                        if (found) {
+                            elem.show();
+                        } else {
+                            elem.hide();
+                        }
+                    }
+                });
+            }
+
+            $('.product-filter > h5').click(function () {
+                var filter = $(this).parent();
+                filter.toggleClass('open');
+                filter.find('ul').slideToggle();
+            });
+
+            $('.product-filter').find('li').click(function () {
+                productSearch.val("");
+                var elem = $(this);
+                var parent = elem.parent();
+                if (elem.index() === 0) {
+                    parent.find('.checked').removeClass('checked');
+                    elem.addClass('checked');
+                } else {
+                    elem.toggleClass('checked');
+                    if (parent.find('.checked').length === 0) {
+                        parent.find('li:first-child').addClass('checked');
+                    } else {
+                        parent.find('li:first-child').removeClass('checked');
+                    }
+                }
+                applyFilters();
+            });
+
+            btnClearFilters.click(function () {
+                productFilters.each(function () {
+                    var elem = $(this);
+                    elem.find('li.checked').removeClass('checked');
+                    elem.find('li:first-child').addClass('checked');
+                });
+
+                applyFilters();
+                productSearch.val("");
+                return false;
+            });
+
+            productSearch.on('change paste keyup', function () {
+                var text = this.value.toLowerCase();
+                var visibleCounter = 0;
+                products.each(function () {
+                    var elem = $(this);
+                    if (elem.find('h3').text().toLowerCase().indexOf(text) > -1) {
+                        elem.show();
+                        visibleCounter += 1;
+                    } else {
+                        elem.hide();
+                    }
+                });
+
+                productCounter.text(visibleCounter);
+            });
+
+            currentFilters.on('click', 'li', function () {
+                var elem = $(this);
+
+                productFilters.find('li.checked').each(function () {
+                    var li = $(this);
+                    if (li.data("filter") === elem.data("filter")) {
+                        li.trigger('click');
+                    }
+                });
+            });
+
+            if (filterParameters.length > 0) {
+                $.each(filterParameters, function (index,parameter) {
+                    $('.product-filter').find('li').each(function () {
+                        var elem = $(this);
+
+                        if (elem.data("filter") === parameter) {
+                            elem.trigger('click');
+                            if (!elem.parent().parent().hasClass('open')) {
+                                elem.parent().parent().find('h5').trigger('click');
+                            }
+                        }
+                    });
+                });
+            }
+
+            // Initialize filters
+            applyFilters();
+        });
+    </script>
+</body>
+</html>

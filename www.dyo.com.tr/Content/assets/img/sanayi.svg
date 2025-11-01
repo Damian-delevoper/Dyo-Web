@@ -1,0 +1,16 @@
+<svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="40" cy="40" r="36" fill="#cf0a2c" opacity="0.08"/>
+  <circle cx="40" cy="40" r="32" fill="none" stroke="#cf0a2c" stroke-width="1" opacity="0.3"/>
+  
+  <!-- Icon content -->
+    <!-- Factory/Industry icon -->
+  <rect x="22" y="28" width="36" height="28" rx="2" fill="none" stroke="#cf0a2c" stroke-width="2.5"/>
+  <rect x="26" y="32" width="10" height="8" fill="#cf0a2c" opacity="0.3"/>
+  <rect x="38" y="32" width="10" height="8" fill="#cf0a2c" opacity="0.3"/>
+  <rect x="50" y="32" width="8" height="8" fill="#cf0a2c" opacity="0.3"/>
+  <line x1="22" y1="42" x2="58" y2="42" stroke="#cf0a2c" stroke-width="2"/>
+  <rect x="28" y="46" width="24" height="10" rx="1" fill="#cf0a2c" opacity="0.2"/>
+  <path d="M28 28 L28 20 L36 20 L36 28" fill="none" stroke="#cf0a2c" stroke-width="2"/>
+  <path d="M44 28 L44 20 L52 20 L52 28" fill="none" stroke="#cf0a2c" stroke-width="2"/>
+</svg>

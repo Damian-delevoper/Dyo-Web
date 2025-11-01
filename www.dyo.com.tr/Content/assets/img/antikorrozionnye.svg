@@ -1,0 +1,16 @@
+<svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="40" cy="40" r="36" fill="#cf0a2c" opacity="0.08"/>
+  <circle cx="40" cy="40" r="32" fill="none" stroke="#cf0a2c" stroke-width="1" opacity="0.3"/>
+  
+  <!-- Icon content -->
+    <!-- Protection shield icon -->
+  <path d="M40 20 L28 26 L28 38 Q28 48 40 54 Q52 48 52 38 L52 26 Z" fill="none" stroke="#cf0a2c" stroke-width="2.5"/>
+  <path d="M40 22 L30 27 L30 38 Q30 46 40 51 Q50 46 50 38 L50 27 Z" fill="#cf0a2c" opacity="0.2"/>
+  <!-- Protection lines -->
+  <line x1="40" y1="26" x2="40" y2="50" stroke="#cf0a2c" stroke-width="2"/>
+  <line x1="32" y1="34" x2="48" y2="34" stroke="#cf0a2c" stroke-width="1.5"/>
+  <line x1="34" y1="42" x2="46" y2="42" stroke="#cf0a2c" stroke-width="1.5"/>
+  <!-- Cross/X for protection -->
+  <path d="M36 30 L44 38 M44 30 L36 38" stroke="#cf0a2c" stroke-width="2" stroke-linecap="round"/>
+</svg>

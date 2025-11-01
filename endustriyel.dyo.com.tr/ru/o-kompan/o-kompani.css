@@ -5893,13 +5893,9 @@ article:hover {
 
 .breadcrumbs li a:before {
     display: inline-block;
-    font: normal normal normal 14px/1 FontAwesome;
-    font-size: inherit;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    content: "";
-    content: "";
+    content: ">";
+    font-weight: bold;
+    color: #cf0a2c;
     margin-left: 10px;
     margin-right: 10px
 }
@@ -6992,13 +6988,36 @@ article:hover {
     border: 0 none
 }
 
+.footer-contact {
+    padding: 24px 0;
+    margin-bottom: 24px;
+}
+
+.footer-contact p {
+    margin: 0;
+    font-size: 16px;
+    color: #505050;
+}
+
+.footer-contact a {
+    color: #cf0a2c;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-contact a:hover {
+    color: #a00822;
+    text-decoration: underline;
+}
+
 #stage {
     position: fixed;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
-    background: rgba(0,0,0,.64) url("gfx/loading.gif") no-repeat center center;
+    /* background: rgba(0,0,0,.64) url("gfx/loading.gif") no-repeat center center; */
+    background: rgba(0,0,0,.64);
     background-size: 60px auto;
     z-index: 9000;
     display: flex;

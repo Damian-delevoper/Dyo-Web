@@ -1,0 +1,18 @@
+<svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="40" cy="40" r="36" fill="#cf0a2c" opacity="0.08"/>
+  <circle cx="40" cy="40" r="32" fill="none" stroke="#cf0a2c" stroke-width="1" opacity="0.3"/>
+  
+  <!-- Icon content -->
+    <!-- Roll/coil icon -->
+  <!-- Metal roll -->
+  <circle cx="40" cy="40" r="12" fill="none" stroke="#cf0a2c" stroke-width="2.5"/>
+  <circle cx="40" cy="40" r="8" fill="#cf0a2c" opacity="0.2"/>
+  <!-- Unrolled sheet -->
+  <rect x="20" y="52" width="40" height="8" rx="1" fill="none" stroke="#cf0a2c" stroke-width="2"/>
+  <rect x="22" y="54" width="36" height="4" fill="#cf0a2c" opacity="0.3"/>
+  <!-- Connection line -->
+  <path d="M40 28 L40 52" stroke="#cf0a2c" stroke-width="2"/>
+  <!-- Roll lines (spiral) -->
+  <path d="M40 40 Q45 35 50 40 Q45 45 40 40" fill="none" stroke="#cf0a2c" stroke-width="1.5" opacity="0.6"/>
+</svg>
