@@ -7,117 +7,128 @@
     const modal = document.getElementById('search-modal');
     const searchInput = document.querySelector('.modal-content input[type="text"]');
     const searchForm = document.getElementById('search-form');
-
-    // Toggle modal visibility
-    function toggleModal() {
-        if (modal.classList.contains('show')) {
-            // Closing animation
-            modal.classList.remove('show');
-            setTimeout(() => {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto'; // Restore scrolling
-            }, 300);
-            
-            // Icon states
-            searchIcon.style.opacity = '1';
-            closeIcon.style.opacity = '0';
-        } else {
-            // Opening animation
-            modal.style.display = 'flex';
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
-            
-            setTimeout(() => {
-                modal.classList.add('show');
-                searchInput.focus();
-                
-                // Mobile keyboard handling
-                if ('virtualKeyboard' in navigator) {
-                    navigator.virtualKeyboard.show();
-                } else if (window.visualViewport) {
-                    window.scrollTo(0, 0);
-                }
-            }, 10);
-            
-            // Icon states
-            searchIcon.style.opacity = '0';
-            closeIcon.style.opacity = '1';
-        }
-    }
-
-    // Event listeners
-    searchIcon.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleModal();
-    });
     
-    closeIcon.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleModal();
-    });
+    // Exit early if search elements don't exist
+    if (!searchIcon || !modal || !searchForm) {
+        console.log('Search functionality not available - elements not found');
+        // Continue with other functionality
+    } else {
 
-    // Close modal when clicking outside
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            toggleModal();
+        // Toggle modal visibility
+        function toggleModal() {
+            if (modal.classList.contains('show')) {
+                // Closing animation
+                modal.classList.remove('show');
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto'; // Restore scrolling
+                }, 300);
+                
+                // Icon states
+                if (searchIcon) searchIcon.style.opacity = '1';
+                if (closeIcon) closeIcon.style.opacity = '0';
+            } else {
+                // Opening animation
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+                
+                setTimeout(() => {
+                    modal.classList.add('show');
+                    if (searchInput) searchInput.focus();
+                    
+                    // Mobile keyboard handling
+                    if ('virtualKeyboard' in navigator) {
+                        navigator.virtualKeyboard.show();
+                    } else if (window.visualViewport) {
+                        window.scrollTo(0, 0);
+                    }
+                }, 10);
+                
+                // Icon states
+                if (searchIcon) searchIcon.style.opacity = '0';
+                if (closeIcon) closeIcon.style.opacity = '1';
+            }
         }
-    });
 
-    // Handle Escape key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal.classList.contains('show')) {
-            toggleModal();
-        }
-    });
-
-    // ======================
-    // SEARCH FUNCTIONALITY
-    // ======================
-    async function performSearch(e) {
-        e.preventDefault();
-        
-        const searchQuery = searchInput.value.trim();
-        const submitBtn = searchForm.querySelector('[type="submit"]');
-        const originalText = submitBtn.innerHTML;
-
-        // Validation
-        if (!searchQuery) {
-            alert('Please enter a search term');
-            return;
-        }
-
-        // Loading state
-        submitBtn.innerHTML = '<span class="spinner"></span> Searching...';
-        submitBtn.disabled = true;
-
-        try {
-            const response = await fetch('/Search/Search', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-Requested-With': 'XMLHttpRequest'
-                },
-                body: JSON.stringify({ searchQuery: searchQuery })
+        // Event listeners
+        if (searchIcon) {
+            searchIcon.addEventListener('click', (e) => {
+                e.stopPropagation();
+                toggleModal();
             });
+        }
+        
+        if (closeIcon) {
+            closeIcon.addEventListener('click', (e) => {
+                e.stopPropagation();
+                toggleModal();
+            });
+        }
 
-            if (!response.ok) throw new Error('Network response was not ok');
+        // Close modal when clicking outside
+        if (modal) {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    toggleModal();
+                }
+            });
+        }
+
+        // Handle Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal && modal.classList.contains('show')) {
+                toggleModal();
+            }
+        });
+
+        // ======================
+        // SEARCH FUNCTIONALITY
+        // ======================
+        async function performSearch(e) {
+            e.preventDefault();
             
-            const data = await response.json();
-            console.log('Search results:', data);
+            if (!searchInput) return;
             
-            // TODO: Handle displaying results in your UI
-            // displaySearchResults(data);
-            
-        } catch (error) {
-            console.error('Search error:', error);
-            alert('Search failed. Please try again.');
-        } finally {
-            submitBtn.innerHTML = originalText;
-            submitBtn.disabled = false;
+            const searchQuery = searchInput.value.trim();
+            const submitBtn = searchForm.querySelector('[type="submit"]');
+            const originalText = submitBtn ? submitBtn.innerHTML : '';
+
+            // Validation
+            if (!searchQuery) {
+                alert('Please enter a search term');
+                return;
+            }
+
+            // Loading state
+            if (submitBtn) {
+                submitBtn.innerHTML = '<span class="spinner"></span> Searching...';
+                submitBtn.disabled = true;
+            }
+
+            try {
+                // Note: This is a static site - search endpoint would need to be implemented
+                // For now, show a message that search is not yet available
+                alert('Search functionality is not yet available on this static website.');
+                console.log('Search query:', searchQuery);
+                
+                // TODO: Implement client-side search or connect to a search service
+                
+            } catch (error) {
+                console.error('Search error:', error);
+                alert('Search failed. Please try again.');
+            } finally {
+                if (submitBtn) {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }
+            }
+        }
+
+        // Form submission
+        if (searchForm) {
+            searchForm.addEventListener('submit', performSearch);
         }
     }
-
-    // Form submission
-    searchForm.addEventListener('submit', performSearch);
 
     // ======================
     // DEPARTMENT TOGGLE FUNCTIONALITY
