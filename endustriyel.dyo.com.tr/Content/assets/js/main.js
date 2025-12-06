@@ -139,8 +139,13 @@
     // Detect touch devices
     const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
     
-    // Handle department clicks
+    // Handle department clicks (desktop only - mobile/tablet shows all items)
     function handleDepartmentClick(e) {
+        // On mobile and tablet, always show all items, no toggle needed
+        if (window.innerWidth <= 1366) {
+            return;
+        }
+        
         const clickedDept = e.currentTarget;
         
         // Don't trigger if clicking a link inside
@@ -157,24 +162,41 @@
             // Then open clicked one
             setTimeout(() => {
                 clickedDept.classList.add('open');
-            }, isTouchDevice ? 0 : 300); // Instant open on mobile
+            }, isTouchDevice ? 0 : 300);
         }
     }
 
-    // Add event listeners
-    departmentElements.forEach(dept => {
-        dept.addEventListener('click', handleDepartmentClick);
-    });
+    // Add event listeners only on desktop (> 1366px)
+    if (window.innerWidth > 1366) {
+        departmentElements.forEach(dept => {
+            dept.addEventListener('click', handleDepartmentClick);
+        });
+    }
 
-    // Close when clicking outside (for mobile)
-    if (isTouchDevice) {
-        document.addEventListener('click', (e) => {
-            if (!e.target.closest('.department') && 
-                !e.target.closest('#header')) {
-                departmentElements.forEach(dept => {
-                    dept.classList.remove('open');
-                });
-            }
+    // Update on resize
+    window.addEventListener('resize', debounce(function() {
+        if (window.innerWidth > 1366) {
+            // Re-enable click handlers for desktop
+            departmentElements.forEach(dept => {
+                dept.removeEventListener('click', handleDepartmentClick);
+                dept.addEventListener('click', handleDepartmentClick);
+            });
+        } else {
+            // Remove click handlers on mobile/tablet
+            departmentElements.forEach(dept => {
+                dept.removeEventListener('click', handleDepartmentClick);
+            });
+            // Ensure all departments are "open" on mobile/tablet (always visible)
+            departmentElements.forEach(dept => {
+                dept.classList.add('open');
+            });
+        }
+    }, 250));
+    
+    // On mobile and tablet, ensure all items are visible on load
+    if (window.innerWidth <= 1366) {
+        departmentElements.forEach(dept => {
+            dept.classList.add('open');
         });
     }
 
@@ -199,6 +221,58 @@
             departmentElements.forEach(dept => {
                 dept.classList.remove('open');
             });
+            // Close mobile menu on resize to desktop
+            const mainMenu = document.getElementById('main-menu');
+            const menuSwitch = document.getElementById('menu-switch');
+            if (mainMenu && menuSwitch) {
+                mainMenu.classList.remove('active');
+                menuSwitch.classList.remove('open');
+            }
         }
     }, 250));
+
+    // ======================
+    // MOBILE MENU TOGGLE
+    // ======================
+    const menuSwitch = document.getElementById('menu-switch');
+    const mainMenu = document.getElementById('main-menu');
+    
+    if (menuSwitch && mainMenu) {
+        menuSwitch.addEventListener('click', function() {
+            this.classList.toggle('open');
+            mainMenu.classList.toggle('active');
+            document.body.style.overflow = mainMenu.classList.contains('active') ? 'hidden' : '';
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('#header') && mainMenu.classList.contains('active')) {
+                menuSwitch.classList.remove('open');
+                mainMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // Handle submenu toggle on mobile
+        const subMenuItems = mainMenu.querySelectorAll('.has-sub-menu > a');
+        subMenuItems.forEach(item => {
+            item.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    const parent = this.parentElement;
+                    const subMenu = parent.querySelector('.sub-menu');
+                    
+                    // Close other submenus
+                    mainMenu.querySelectorAll('.has-sub-menu').forEach(menu => {
+                        if (menu !== parent) {
+                            menu.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current submenu
+                    parent.classList.toggle('active');
+                }
+            });
+        });
+    }
 });

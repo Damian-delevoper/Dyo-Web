@@ -2,7 +2,8 @@
 <html lang="ru">
  <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="napravlenya.css">
+    <link rel="stylesheet" href="../napravlenya.css">
+    <link rel="stylesheet" href="../produkty.css">
     <style>
         #text-holder {
             text-align: center;
@@ -23,12 +24,17 @@
   <body>
   <header id="header">
     <div class="container">
-            <a href="../../../../www.dyo.com.tr/ru.html" id="logo">
-                <img src="../../../../www.dyo.com.tr/Content/assets/img/logo.png" alt="dyo logo" />
+        <button id="menu-switch" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <a href="../../../ru.html" id="logo">
+            <img src="../../../Content/assets/img/logo.png" alt="dyo logo" />
       </a>
       <ul id="main-menu">
         <li>
-                    <a href="../../../../www.dyo.com.tr/ru.html">Главная страница</a>
+                    <a href="../../../ru.html">Главная страница</a>
         </li>
         <li class="has-sub-menu">
           <a href="../../o-kompan.html">О КОМПАНИИ</a>
@@ -42,7 +48,7 @@
           </ul>
         </li>
         <li class="has-sub-menu">
-                    <a href="../../../../www.dyo.com.tr/ru.html">НАПРАВЛЕНИЯ</a>
+                    <a href="../../../ru.html">НАПРАВЛЕНИЯ</a>
           <ul class="sub-menu">
             <li>
                             <a href="../promyshlennye-pokrytiya.html">Промышленные покрытия</a>
@@ -75,7 +81,7 @@
 <section class="section">
     <div class="container">
     <ul class="breadcrumbs">
-                    <li><a href="../../../../www.dyo.com.tr/ru.html">Главная страница</a></li>
+                    <li><a href="../../../ru.html">Главная страница</a></li>
                     <li><a href="../promyshlennye-pokrytiya.html">Промышленные покрытия</a></li>
             <li><a href="produkty.html">Продукция</a></li>
     </ul>
@@ -335,7 +341,8 @@
     <script type="text/javascript">
         var currentLang = "ru";
     </script>
-    <script src="https://endustriyel.dyo.com.tr/Scripts/site?v=OcZ-fI1v7yJ3rfqGDhX5Q7tL-jwVwwNKouUgg2JQ7rg1"></script>
+    <script src="../../assets/js/jquery-3.4.1.slim.min.js"></script>
+    <script src="../produkty.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             var filters = [];
