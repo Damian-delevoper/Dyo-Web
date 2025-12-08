@@ -4,10 +4,28 @@ document.addEventListener('DOMContentLoaded', function() {
     const mainMenu = document.getElementById('main-menu');
     
     if (menuSwitch && mainMenu) {
-        menuSwitch.addEventListener('click', function() {
+        // Use both touch and click for better mobile responsiveness
+        let touchHandled = false;
+        
+        menuSwitch.addEventListener('touchstart', function(e) {
+            touchHandled = true;
+            e.preventDefault();
+            e.stopPropagation();
             this.classList.toggle('open');
             mainMenu.classList.toggle('active');
             document.body.style.overflow = mainMenu.classList.contains('active') ? 'hidden' : '';
+            // Prevent click event from firing
+            setTimeout(() => { touchHandled = false; }, 300);
+        }, { passive: false });
+        
+        menuSwitch.addEventListener('click', function(e) {
+            if (!touchHandled) {
+                e.preventDefault();
+                e.stopPropagation();
+                this.classList.toggle('open');
+                mainMenu.classList.toggle('active');
+                document.body.style.overflow = mainMenu.classList.contains('active') ? 'hidden' : '';
+            }
         });
         
         // Close menu when clicking outside

@@ -7046,10 +7046,27 @@ $(document).ready(function () {
    var sectionProjects;
    var stage = $('#stage');
 
-   menuSwitch.click(function () {
+   // Use touchstart for better mobile responsiveness
+   let touchHandled = false;
+   
+   menuSwitch.on('touchstart', function(e) {
+      touchHandled = true;
+      e.preventDefault();
+      e.stopPropagation();
       menuSwitch.toggleClass('open');
       topMenuHolder.toggleClass('open');
       mainMenu.slideToggle();
+      setTimeout(function() { touchHandled = false; }, 300);
+   });
+   
+   menuSwitch.click(function (e) {
+      if (!touchHandled) {
+         e.preventDefault();
+         e.stopPropagation();
+         menuSwitch.toggleClass('open');
+         topMenuHolder.toggleClass('open');
+         mainMenu.slideToggle();
+      }
    });
 
    var isMobile = $(window).width() < 768;

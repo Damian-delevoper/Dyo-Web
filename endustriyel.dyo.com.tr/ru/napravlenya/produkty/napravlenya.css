@@ -7304,7 +7304,18 @@ article:hover {
     }
 
     #header #menu-switch {
-        display: block
+        display: block !important;
+        height: 52px !important;
+        width: 52px !important;
+        min-height: 52px !important;
+        min-width: 52px !important;
+        padding: 10px !important;
+        margin-top: 16px !important;
+    }
+    
+    #header #menu-switch span {
+        width: 32px !important;
+        height: 3.5px !important;
     }
 
     #header.collapsed #main-menu {
