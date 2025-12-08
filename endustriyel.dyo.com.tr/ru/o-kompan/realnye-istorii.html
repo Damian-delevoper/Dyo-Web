@@ -152,7 +152,69 @@
   </div>
 </footer>
 
-    <script src="../napravlenya/napravlenya.js"></script>
+    <!-- Mobile/Tablet Bottom Navigation -->
+    <nav id="mobile-bottom-nav" class="mobile-bottom-nav">
+        <a href="../../ru.html" class="nav-item">
+            <i class="fa fa-home"></i>
+            <span>Главная</span>
+        </a>
+        <a href="../../ru.html" class="nav-item">
+            <i class="fa fa-th-large"></i>
+            <span>Направления</span>
+        </a>
+        <button class="nav-item nav-menu-toggle" id="mobile-menu-toggle">
+            <i class="fa fa-bars"></i>
+            <span>Меню</span>
+        </button>
+        <a href="../o-kompan.html" class="nav-item">
+            <i class="fa fa-info-circle"></i>
+            <span>О компании</span>
+        </a>
+    </nav>
+
+    <!-- Mobile/Tablet Slide-out Menu -->
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay">
+        <div class="mobile-menu-drawer">
+            <div class="mobile-menu-header">
+                <h3>Меню</h3>
+                <button class="mobile-menu-close" id="mobile-menu-close">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <ul class="mobile-menu-list">
+                <li>
+                    <a href="../../ru.html">Главная страница</a>
+                </li>
+                <li class="mobile-menu-parent">
+                    <a href="../../ru.html" class="mobile-menu-link">
+                        <span>НАПРАВЛЕНИЯ</span>
+                        <i class="fa fa-chevron-down"></i>
+                    </a>
+                    <ul class="mobile-submenu">
+                        <li><a href="../napravlenya/promyshlennye-pokrytiya.html">Промышленные покрытия</a></li>
+                        <li><a href="../napravlenya/antikorrozionnye-pokrytiya.html">Антикоррозионные покрытия</a></li>
+                        <li><a href="../napravlenya/poroshkovye-pokrytiya.html">Порошковые покрытия</a></li>
+                        <li><a href="../napravlenya/morskie-pokrytiya.html">Морские покрытия</a></li>
+                        <li><a href="../napravlenya/lakokrasochnye-pokrytiya-dlya-rulonnogo-metalla.html">Лакокрасочные покрытия для рулонного металла</a></li>
+                        <li><a href="../napravlenya/materialy-dlya-remonta-zdaniy-iz-metallokonstruktsiy.html">Материалы для ремонта зданий из металлоконструкций</a></li>
+                        <li><a href="../napravlenya/avtoremontnye-lakokrasochnye-materialy.html">Авторемонтные лакокрасочные материалы</a></li>
+                    </ul>
+                </li>
+                <li class="mobile-menu-parent">
+                    <a href="../o-kompan.html" class="mobile-menu-link">
+                        <span>О КОМПАНИИ</span>
+                        <i class="fa fa-chevron-down"></i>
+                    </a>
+                    <ul class="mobile-submenu">
+                        <li><a href="../o-kompan.html">О нас</a></li>
+                        <li><a href="realnye-istorii.html">Реальные истории</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="o-kompani.js"></script>
 </body>
 </html>
 

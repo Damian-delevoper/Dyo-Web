@@ -7477,4 +7477,54 @@ $(document).ready(function () {
       }
       return false;
    });
+
+   // ======================
+   // MOBILE/TABLET NAVIGATION
+   // ======================
+   var mobileMenuToggle = $('#mobile-menu-toggle');
+   var mobileMenuOverlay = $('#mobile-menu-overlay');
+   var mobileMenuClose = $('#mobile-menu-close');
+   var mobileMenuParents = $('.mobile-menu-parent');
+
+   // Toggle mobile menu drawer
+   if (mobileMenuToggle.length && mobileMenuOverlay.length) {
+      mobileMenuToggle.on('click', function(e) {
+         e.preventDefault();
+         e.stopPropagation();
+         mobileMenuOverlay.addClass('active');
+         $('body').css('overflow', 'hidden');
+      });
+   }
+
+   // Close mobile menu
+   if (mobileMenuClose.length) {
+      mobileMenuClose.on('click', function(e) {
+         e.preventDefault();
+         e.stopPropagation();
+         mobileMenuOverlay.removeClass('active');
+         $('body').css('overflow', '');
+      });
+   }
+
+   // Close menu when clicking overlay
+   mobileMenuOverlay.on('click', function(e) {
+      if ($(e.target).is(mobileMenuOverlay)) {
+         mobileMenuOverlay.removeClass('active');
+         $('body').css('overflow', '');
+      }
+   });
+
+   // Close menu on Escape key
+   $(document).on('keydown', function(e) {
+      if (e.key === 'Escape' && mobileMenuOverlay.hasClass('active')) {
+         mobileMenuOverlay.removeClass('active');
+         $('body').css('overflow', '');
+      }
+   });
+
+   // Toggle submenus in mobile menu
+   mobileMenuParents.find('.mobile-menu-link').on('click', function(e) {
+      e.preventDefault();
+      $(this).closest('.mobile-menu-parent').toggleClass('active');
+   });
 });;

@@ -10,7 +10,7 @@
     
     // Exit early if search elements don't exist
     if (!searchIcon || !modal || !searchForm) {
-        console.log('Search functionality not available - elements not found');
+        // Search functionality not available - elements not found
         // Continue with other functionality
     } else {
 
@@ -114,7 +114,7 @@
                 // TODO: Implement client-side search or connect to a search service
                 
             } catch (error) {
-                console.error('Search error:', error);
+                // Search error - show user-friendly message
                 alert('Search failed. Please try again.');
             } finally {
                 if (submitBtn) {
@@ -224,4 +224,64 @@
         }
     }, 250));
 
+    // ======================
+    // MOBILE/TABLET NAVIGATION
+    // ======================
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    const mobileMenuParents = document.querySelectorAll('.mobile-menu-parent');
+
+    // Toggle mobile menu drawer
+    if (mobileMenuToggle && mobileMenuOverlay) {
+        mobileMenuToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            mobileMenuOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    }
+
+    // Close mobile menu
+    if (mobileMenuClose) {
+        mobileMenuClose.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            closeMobileMenu();
+        });
+    }
+
+    // Close menu when clicking overlay
+    if (mobileMenuOverlay) {
+        mobileMenuOverlay.addEventListener('click', function(e) {
+            if (e.target === mobileMenuOverlay) {
+                closeMobileMenu();
+            }
+        });
+    }
+
+    // Close menu on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && mobileMenuOverlay && mobileMenuOverlay.classList.contains('active')) {
+            closeMobileMenu();
+        }
+    });
+
+    function closeMobileMenu() {
+        if (mobileMenuOverlay) {
+            mobileMenuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+
+    // Toggle submenus in mobile menu
+    mobileMenuParents.forEach(parent => {
+        const link = parent.querySelector('.mobile-menu-link');
+        if (link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                parent.classList.toggle('active');
+            });
+        }
+    });
 });

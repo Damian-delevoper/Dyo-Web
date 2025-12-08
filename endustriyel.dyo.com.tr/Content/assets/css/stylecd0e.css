@@ -1374,3 +1374,249 @@ main {
 	src: url(https://fonts.gstatic.com/s/sourcesanspro/v22/6xKydSBYKcSV-LCoeQqfX1RYOo3ig4vwlxdu.woff2) format('woff2');
 	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+
+/* ========================================
+   MOBILE/TABLET BOTTOM NAVIGATION
+   ======================================== */
+@media (max-width: 1366px) {
+    /* Hide main menu on mobile/tablet - use bottom nav instead */
+    #header #main-menu {
+        display: none !important;
+    }
+    
+    /* Bottom Navigation Bar */
+    .mobile-bottom-nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: #ffffff;
+        border-top: 1px solid #e0e0e0;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 8px 0;
+        z-index: 1000;
+        height: 60px;
+    }
+
+    .mobile-bottom-nav .nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        color: #505050;
+        font-size: 11px;
+        font-weight: 600;
+        padding: 4px 8px;
+        min-width: 60px;
+        transition: color 0.3s ease;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+    }
+
+    .mobile-bottom-nav .nav-item i {
+        font-size: 20px;
+        margin-bottom: 2px;
+        display: block;
+    }
+
+    .mobile-bottom-nav .nav-item span {
+        display: block;
+        line-height: 1.2;
+    }
+
+    .mobile-bottom-nav .nav-item:active,
+    .mobile-bottom-nav .nav-item:hover {
+        color: #cf0a2c;
+    }
+
+    .mobile-bottom-nav .nav-item.active {
+        color: #cf0a2c;
+    }
+
+    /* Add padding to body to prevent content from being hidden behind bottom nav */
+    body {
+        padding-bottom: 60px;
+    }
+
+    /* Slide-out Menu Overlay */
+    .mobile-menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 2000;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .mobile-menu-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Slide-out Menu Drawer */
+    .mobile-menu-drawer {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 85%;
+        max-width: 320px;
+        height: 100%;
+        background: #ffffff;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        overflow-y: auto;
+        z-index: 2001;
+    }
+
+    .mobile-menu-overlay.active .mobile-menu-drawer {
+        transform: translateX(0);
+    }
+
+    .mobile-menu-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        border-bottom: 1px solid #e0e0e0;
+        background: #f8f8f8;
+    }
+
+    .mobile-menu-header h3 {
+        margin: 0;
+        font-size: 20px;
+        font-weight: 700;
+        color: #333;
+    }
+
+    .mobile-menu-close {
+        background: transparent;
+        border: none;
+        font-size: 24px;
+        color: #505050;
+        cursor: pointer;
+        padding: 0;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: color 0.3s ease;
+    }
+
+    .mobile-menu-close:hover,
+    .mobile-menu-close:active {
+        color: #cf0a2c;
+    }
+
+    .mobile-menu-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .mobile-menu-list > li {
+        border-bottom: 1px solid #f0f0f0;
+    }
+
+    .mobile-menu-list > li > a {
+        display: block;
+        padding: 16px 20px;
+        color: #333;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 16px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .mobile-menu-list > li > a:hover,
+    .mobile-menu-list > li > a:active {
+        background-color: #f5f5f5;
+        color: #cf0a2c;
+    }
+
+    .mobile-menu-link {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 20px;
+        color: #333;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 16px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .mobile-menu-link i {
+        font-size: 14px;
+        transition: transform 0.3s ease;
+    }
+
+    .mobile-menu-parent.active .mobile-menu-link i {
+        transform: rotate(180deg);
+    }
+
+    .mobile-menu-parent.active .mobile-menu-link {
+        background-color: #f5f5f5;
+        color: #cf0a2c;
+    }
+
+    .mobile-submenu {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        background: #f8f8f8;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .mobile-menu-parent.active .mobile-submenu {
+        max-height: 1000px;
+    }
+
+    .mobile-submenu li {
+        border-bottom: 1px solid #e8e8e8;
+    }
+
+    .mobile-submenu li:last-child {
+        border-bottom: none;
+    }
+
+    .mobile-submenu a {
+        display: block;
+        padding: 12px 20px 12px 40px;
+        color: #505050;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .mobile-submenu a:hover,
+    .mobile-submenu a:active {
+        background-color: #ffffff;
+        color: #cf0a2c;
+    }
+}
+
+/* Hide bottom nav on desktop */
+@media (min-width: 1367px) {
+    .mobile-bottom-nav,
+    .mobile-menu-overlay {
+        display: none !important;
+    }
+    
+    body {
+        padding-bottom: 0 !important;
+    }
+}
