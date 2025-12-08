@@ -109,7 +109,7 @@
                 // Note: This is a static site - search endpoint would need to be implemented
                 // For now, show a message that search is not yet available
                 alert('Search functionality is not yet available on this static website.');
-                console.log('Search query:', searchQuery);
+                // Search query logged (removed console.log for production)
                 
                 // TODO: Implement client-side search or connect to a search service
                 

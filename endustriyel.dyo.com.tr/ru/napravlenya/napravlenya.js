@@ -102,8 +102,8 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
         
-        console.log('Enhanced Swiper initialized successfully');
+        // Swiper initialized successfully
     } catch (error) {
-        console.error('Swiper initialization error:', error);
+        // Swiper initialization error (silent fail for production)
     }
 });

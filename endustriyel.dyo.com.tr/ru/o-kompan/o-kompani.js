@@ -33,8 +33,8 @@ document.addEventListener('DOMContentLoaded', function() {
             sliderContainer.addEventListener('mouseleave', () => mainSlider.autoplay.start());
         }
         
-        console.log('Swiper initialized successfully');
+        // Swiper initialized successfully
     } catch (error) {
-        console.error('Swiper initialization error:', error);
+        // Swiper initialization error (silent fail for production)
     }
 });
