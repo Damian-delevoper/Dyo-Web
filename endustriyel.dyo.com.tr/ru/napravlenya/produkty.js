@@ -7039,35 +7039,11 @@ var staticMessages = {
 
 $(document).ready(function () {
    var header = $('#header');
-   var menuSwitch = header.find('#menu-switch');
    var mainMenu = header.find('#main-menu');
    var topMenuHolder = header.find('#top-menu-holder');
    var collapsed = false;
    var sectionProjects;
    var stage = $('#stage');
-
-   // Use touchstart for better mobile responsiveness
-   let touchHandled = false;
-   
-   menuSwitch.on('touchstart', function(e) {
-      touchHandled = true;
-      e.preventDefault();
-      e.stopPropagation();
-      menuSwitch.toggleClass('open');
-      topMenuHolder.toggleClass('open');
-      mainMenu.slideToggle();
-      setTimeout(function() { touchHandled = false; }, 300);
-   });
-   
-   menuSwitch.click(function (e) {
-      if (!touchHandled) {
-         e.preventDefault();
-         e.stopPropagation();
-         menuSwitch.toggleClass('open');
-         topMenuHolder.toggleClass('open');
-         mainMenu.slideToggle();
-      }
-   });
 
    var isMobile = $(window).width() < 768;
 

@@ -221,58 +221,7 @@
             departmentElements.forEach(dept => {
                 dept.classList.remove('open');
             });
-            // Close mobile menu on resize to desktop
-            const mainMenu = document.getElementById('main-menu');
-            const menuSwitch = document.getElementById('menu-switch');
-            if (mainMenu && menuSwitch) {
-                mainMenu.classList.remove('active');
-                menuSwitch.classList.remove('open');
-            }
         }
     }, 250));
 
-    // ======================
-    // MOBILE MENU TOGGLE
-    // ======================
-    const menuSwitch = document.getElementById('menu-switch');
-    const mainMenu = document.getElementById('main-menu');
-    
-    if (menuSwitch && mainMenu) {
-        menuSwitch.addEventListener('click', function() {
-            this.classList.toggle('open');
-            mainMenu.classList.toggle('active');
-            document.body.style.overflow = mainMenu.classList.contains('active') ? 'hidden' : '';
-        });
-        
-        // Close menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!e.target.closest('#header') && mainMenu.classList.contains('active')) {
-                menuSwitch.classList.remove('open');
-                mainMenu.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        });
-        
-        // Handle submenu toggle on mobile
-        const subMenuItems = mainMenu.querySelectorAll('.has-sub-menu > a');
-        subMenuItems.forEach(item => {
-            item.addEventListener('click', function(e) {
-                if (window.innerWidth <= 768) {
-                    e.preventDefault();
-                    const parent = this.parentElement;
-                    const subMenu = parent.querySelector('.sub-menu');
-                    
-                    // Close other submenus
-                    mainMenu.querySelectorAll('.has-sub-menu').forEach(menu => {
-                        if (menu !== parent) {
-                            menu.classList.remove('active');
-                        }
-                    });
-                    
-                    // Toggle current submenu
-                    parent.classList.toggle('active');
-                }
-            });
-        });
-    }
 });

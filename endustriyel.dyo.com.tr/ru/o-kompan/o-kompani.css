@@ -5716,82 +5716,6 @@ body {
     color: #fff
 }
 
-#header #menu-switch {
-    position: relative;
-    cursor: pointer;
-    height: 48px;
-    width: 48px;
-    min-height: 48px;
-    min-width: 48px;
-    z-index: 8000;
-    margin-top: 18px;
-    float: right;
-    display: none;
-    padding: 8px;
-    box-sizing: border-box;
-    background: transparent;
-    border: none;
-    -webkit-tap-highlight-color: rgba(207, 10, 44, 0.2);
-    touch-action: manipulation;
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-}
-
-#header #menu-switch span {
-    position: absolute;
-    display: block;
-    width: 28px;
-    height: 3px;
-    background-color: #cf0a2c;
-    transition: all .3s cubic-bezier(0.4, 0, 0.2, 1);
-    left: 50%;
-    transform: translateX(-50%);
-    border-radius: 2px;
-    pointer-events: none;
-}
-
-#header #menu-switch span:nth-child(1) {
-    top: 14px
-}
-
-#header #menu-switch span:nth-child(2) {
-    top: 50%;
-    transform: translate(-50%, -50%);
-}
-
-#header #menu-switch span:nth-child(3) {
-    bottom: 14px
-}
-
-#header #menu-switch.open span:nth-child(1) {
-    top: 50%;
-    -webkit-transform: translate(-50%, -50%) rotate(45deg);
-    -moz-transform: translate(-50%, -50%) rotate(45deg);
-    -ms-transform: translate(-50%, -50%) rotate(45deg);
-    -o-transform: translate(-50%, -50%) rotate(45deg);
-    transform: translate(-50%, -50%) rotate(45deg);
-}
-
-#header #menu-switch.open span:nth-child(2) {
-    opacity: 0;
-    -webkit-transform: translate(-50%, -50%) scale(0);
-    -moz-transform: translate(-50%, -50%) scale(0);
-    -ms-transform: translate(-50%, -50%) scale(0);
-    -o-transform: translate(-50%, -50%) scale(0);
-    transform: translate(-50%, -50%) scale(0);
-}
-
-#header #menu-switch.open span:nth-child(3) {
-    bottom: auto;
-    top: 50%;
-    -webkit-transform: translate(-50%, -50%) rotate(-45deg);
-    -moz-transform: translate(-50%, -50%) rotate(-45deg);
-    -ms-transform: translate(-50%, -50%) rotate(-45deg);
-    -o-transform: translate(-50%, -50%) rotate(-45deg);
-    transform: translate(-50%, -50%) rotate(-45deg);
-}
 
 #header.collapsed {
     box-shadow: 0 12px 12px rgba(0,0,0,.12)
@@ -7222,9 +7146,6 @@ article:hover {
         color: #fff
     }
 
-    #header #menu-switch {
-        display: block
-    }
 
     #header.collapsed #main-menu {
         top: 84px
@@ -7431,9 +7352,6 @@ article:hover {
         height: 60px
     }
 
-    #header #menu-switch {
-        margin-top: 10px
-    }
 
     #header #main-menu {
         width: 100%;
