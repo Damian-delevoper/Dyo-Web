@@ -132,6 +132,10 @@ table {
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 html,
 body {
     height: 100%;
@@ -150,6 +154,34 @@ a {
 /*#endregion*/
 /*#region colors*/
 /*#endregion*/
+
+/* Respect user's motion preferences for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    /* Disable fade-in animations for reduced motion */
+    #departments .department.industrial ul li {
+        opacity: 1 !important;
+        animation: none !important;
+    }
+    
+    #departments .department h3 {
+        opacity: 1 !important;
+        animation: none !important;
+    }
+    
+    html {
+        scroll-behavior: auto !important;
+    }
+}
+
 strong {
     font-weight: 700;
 }
@@ -199,10 +231,13 @@ body {
         min-height: auto !important;
         height: auto !important;
         overflow: visible !important;
+        overscroll-behavior-y: contain !important;
+        -webkit-overflow-scrolling: touch !important;
     }
     
     html {
         overflow: visible !important;
+        overscroll-behavior-y: contain !important;
     }
 }
 
@@ -448,6 +483,40 @@ main {
     -webkit-filter: hue-rotate(0deg) saturate(0) brightness(100);
     filter: hue-rotate(0deg) saturate(0) brightness(100);
     transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+}
+
+/* Loading state for images */
+#departments .department.industrial ul li a img[loading="lazy"] {
+    opacity: 0;
+    animation: imageFadeIn 0.3s ease forwards;
+}
+
+@keyframes imageFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Image skeleton loader (while loading) */
+#departments .department.industrial ul li a img:not([src]),
+#departments .department.industrial ul li a img[src=""] {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 25%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.1) 75%);
+    background-size: 200% 100%;
+    animation: skeletonLoading 1.5s ease-in-out infinite;
+}
+
+@keyframes skeletonLoading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
 }
 
 #departments .department.industrial ul li a:hover {
@@ -471,270 +540,205 @@ main {
    Desktop version (above 1366px) is unchanged
    ======================================== */
 
-/* Tablet and Mobile: Show all items without hover requirement */
 @media (max-width: 1366px) {
-    /* Clean white background for entire page */
-    body {
+    /* Base reset for mobile/tablet - Fit to viewport */
+    html, body {
         background: #ffffff !important;
         background-image: none !important;
-        background-color: #ffffff !important;
+        height: 100vh !important;
+        overflow: hidden !important;
         margin: 0 !important;
         padding: 0 !important;
-        min-height: auto !important;
-        height: auto !important;
     }
     
-    html {
-        background: #ffffff !important;
-        background-color: #ffffff !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        height: auto !important;
-        min-height: auto !important;
+    body {
+        display: flex !important;
+        flex-direction: column !important;
     }
     
-    /* Header: White background, clean, no gaps */
+    /* HEADER - Ultra compact */
     #header {
-        background-color: #ffffff !important;
-        border-bottom: none !important;
+        background: #ffffff !important;
+        border: none !important;
         box-shadow: none !important;
         margin: 0 !important;
-        margin-bottom: 0 !important;
-        padding: 15px 0 !important;
-        padding-bottom: 15px !important;
-        width: 100% !important;
+        padding: 0 !important;
+        flex-shrink: 0 !important;
     }
     
     #header .container {
-        max-width: 100% !important;
-        padding-left: 15px !important;
-        padding-right: 15px !important;
+        padding: 8px 12px !important;
         margin: 0 !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
+        max-width: 100% !important;
     }
     
-    /* Departments section: Seamless connection to header - ZERO gap */
-    #departments {
-        height: auto !important;
-        min-height: auto !important;
-        overflow: visible !important;
+    #header #logo {
+        height: 28px !important;
+        width: auto !important;
         display: block !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        margin-top: 0 !important;
-        padding-top: 0 !important;
-        margin-bottom: 0 !important;
-        padding-bottom: 0 !important;
-        background-color: #1d1d1d !important;
-        width: 100% !important;
     }
     
-    #departments .container {
-        padding: 0 !important;
+    /* DEPARTMENTS - Flex grow to fill available space, but respect footer */
+    #departments {
+        background: #2a2a2a !important;
+        background-image: url("../img/gray_bg.jpg") !important;
+        background-size: cover !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
         margin: 0 !important;
-        max-width: 100% !important;
-        width: 100% !important;
+        padding: 0 !important;
+        flex: 1 1 0% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        overflow: hidden !important;
+        min-height: 0 !important;
+        max-height: 100% !important;
     }
     
     #departments .department {
-        flex: none !important;
-        height: auto !important;
-        min-height: auto !important;
-        overflow: visible !important;
-        position: relative !important;
-        width: 100% !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        margin-top: 0 !important;
-        padding-top: 0 !important;
         background: transparent !important;
-    }
-    
-    #departments .department::before {
-        display: none !important;
-    }
-    
-    /* Title section: Dark background - connects directly to header with no gap */
-    #departments .department h3 {
-        position: relative !important;
-        top: auto !important;
-        left: auto !important;
-        transform: none !important;
-        opacity: 1 !important;
-        pointer-events: auto !important;
-        padding: 18px 15px 0 15px !important;
-        font-size: 28px !important;
-        text-shadow: none !important;
-        background-color: #1d1d1d !important;
         margin: 0 !important;
-        margin-bottom: 0 !important;
-        margin-top: 0 !important;
-        padding-top: 18px !important;
-        padding-bottom: 0 !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
-        font-weight: 700 !important;
-        color: #ffffff !important;
+        padding: 0 !important;
+        position: relative !important;
+        height: 100% !important;
+        min-height: 0 !important;
+        max-height: 100% !important;
+        overflow: hidden !important;
+        display: flex !important;
+        flex-direction: column !important;
     }
     
-    /* Gray background section with all 7 items - full coverage */
+    /* Title section - Hide completely to remove gray gap */
+    #departments .department h3 {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+    /* Department list - Equal distribution to fit all 7 items without scrolling */
     #departments .department.industrial ul {
+        background: transparent !important;
+        display: flex !important;
+        flex-direction: column !important;
+        list-style: none !important;
+        margin: 0 !important;
+        padding: 0 !important;
         position: relative !important;
-        height: auto !important;
+        height: 100% !important;
         width: 100% !important;
-        top: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
         transform: translateY(0) !important;
-        display: grid !important;
         opacity: 1 !important;
         visibility: visible !important;
-        background-image: url("../img/gray_bg.jpg") !important;
-        background-repeat: no-repeat !important;
-        background-position: center center !important;
-        background-size: cover !important;
-        background-color: #2a2a2a !important;
-        margin: 0 !important;
-        margin-top: 0 !important;
-        padding: 0 !important;
-        padding-top: 0 !important;
-        padding-bottom: 0 !important;
-        margin-bottom: 0 !important;
-        border-radius: 0 !important;
-        box-shadow: none !important;
-        list-style: none !important;
+        overflow: hidden !important;
+        flex: 1 1 auto !important;
     }
     
     #departments .department.industrial ul li {
-        width: 100% !important;
-        height: auto !important;
-        min-height: 90px !important;
-        position: relative !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        list-style: none !important;
         margin: 0 !important;
         padding: 0 !important;
-        list-style: none !important;
+        width: 100% !important;
+        flex: 1 1 0% !important;
+        position: relative !important;
+        display: flex !important;
+        min-height: 0 !important;
+    }
+    
+    #departments .department.industrial ul li:last-child {
+        border-bottom: none !important;
     }
     
     #departments .department.industrial ul li a {
-        height: 100% !important;
-        min-height: 90px !important;
+        display: flex !important;
         flex-direction: row !important;
-        justify-content: flex-start !important;
         align-items: center !important;
-        text-align: left !important;
-        padding: 15px 20px !important;
-        box-sizing: border-box !important;
+        justify-content: flex-start !important;
+        padding: 6px 12px !important;
+        color: #ffffff !important;
+        text-decoration: none !important;
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0.1) !important;
+        transition: background-color 0.2s !important;
         width: 100% !important;
+        box-sizing: border-box !important;
+        height: 100% !important;
+        min-height: 0 !important;
+    }
+    
+    #departments .department.industrial ul li a:active {
+        background-color: rgba(0, 0, 0, 0.2) !important;
     }
     
     #departments .department.industrial ul li a img {
-        width: 50px !important;
-        height: 50px !important;
-        margin-bottom: 0 !important;
-        margin-right: 15px !important;
+        width: 32px !important;
+        height: 32px !important;
+        margin-right: 10px !important;
         flex-shrink: 0 !important;
         display: block !important;
     }
     
     #departments .department.industrial ul li a span {
-        font-size: 16px !important;
+        font-size: 15px !important;
         line-height: 1.4 !important;
-        flex: 1 !important;
+        font-weight: 600 !important;
+        display: block !important;
+        color: #ffffff !important;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+        letter-spacing: 0.2px !important;
     }
     
-    /* Footer: White background, smaller, no gaps */
+    /* FOOTER - Ultra compact, always visible */
     #footer {
-        background-color: #ffffff !important;
+        background: #ffffff !important;
+        border: none !important;
+        box-shadow: none !important;
         margin: 0 !important;
-        margin-top: 0 !important;
-        margin-bottom: 0 !important;
-        padding: 15px 0 !important;
-        padding-top: 15px !important;
-        padding-bottom: 15px !important;
-        width: 100% !important;
-        border-top: none !important;
+        padding: 0 !important;
+        flex-shrink: 0 !important;
+        flex-grow: 0 !important;
+        position: relative !important;
+        z-index: 10 !important;
     }
     
     #footer .container {
+        padding: 8px 12px !important;
         max-width: 100% !important;
-        padding-left: 15px !important;
-        padding-right: 15px !important;
-        margin: 0 !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
     }
     
     #footer .footer-logos {
-        gap: 8px !important;
+        display: flex !important;
         flex-direction: column !important;
+        align-items: center !important;
+        gap: 3px !important;
+    }
+    
+    #footer .footer-logos p {
+        margin: 0 !important;
+        color: #505050 !important;
+        font-size: 10px !important;
+        line-height: 1.2 !important;
         text-align: center !important;
     }
     
-    #footer .footer-logos p {
-        color: #505050 !important;
-        font-size: 12px !important;
-        margin: 0 !important;
-    }
-    
     #footer .footer-logos p img.logo-dyo {
-        height: 24px !important;
-        margin-bottom: 4px !important;
-        display: inline-block !important;
-    }
-    
-    /* Remove ALL section gaps */
-    section {
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-    
-    /* Ensure main element has no margins/padding on mobile/tablet */
-    main {
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-    
-    /* ZERO gaps between all sections */
-    #header + #departments,
-    #departments + #footer {
-        margin-top: 0 !important;
-        padding-top: 0 !important;
+        height: 18px !important;
+        width: auto !important;
+        display: block !important;
+        margin-bottom: 1px !important;
     }
 }
 
-/* Tablet specific (769px - 1024px): 2 columns */
+/* Tablet (769px - 1024px): 2 columns layout */
 @media (min-width: 769px) and (max-width: 1024px) {
-    #header {
-        background-color: #ffffff !important;
-    }
-    
-    #footer {
-        background-color: #ffffff !important;
-        margin-top: 0 !important;
-        padding: 15px 0 !important;
-    }
-    
-    #footer .footer-logos p {
-        color: #505050 !important;
-        font-size: 13px !important;
-    }
-    
-    #footer .footer-logos p img.logo-dyo {
-        height: 26px !important;
-        margin-bottom: 5px !important;
-        display: inline-block !important;
-    }
-    
     #departments .department.industrial ul {
         grid-template-columns: repeat(2, 1fr) !important;
-        gap: 0 !important;
     }
     
     #departments .department.industrial ul li {
-        border-right: 1px solid rgba(255, 255, 255, 0.15) !important;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
-        min-height: 140px !important;
+        border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
     }
     
     #departments .department.industrial ul li:nth-child(2n) {
@@ -749,15 +753,14 @@ main {
         flex-direction: column !important;
         justify-content: center !important;
         text-align: center !important;
-        min-height: 140px !important;
-        padding: 20px 15px !important;
+        padding: 25px 20px !important;
     }
     
     #departments .department.industrial ul li a img {
         margin-right: 0 !important;
         margin-bottom: 12px !important;
-        width: 60px !important;
-        height: 60px !important;
+        width: 64px !important;
+        height: 64px !important;
     }
     
     #departments .department.industrial ul li a span {
@@ -765,149 +768,133 @@ main {
     }
     
     #departments .department h3 {
-        font-size: 26px !important;
-        padding: 18px 15px 0 15px !important;
-        padding-top: 18px !important;
+        font-size: 28px !important;
+        padding: 0 15px 22px 15px !important;
+        padding-top: 22px !important;
+        letter-spacing: -0.8px !important;
+        line-height: 1.2 !important;
+        font-weight: 700 !important;
+        background-color: #1d1d1d !important;
     }
 }
 
-/* Mobile specific (max-width: 768px): 1 column, vertical list */
+/* Mobile (max-width: 768px): Adjustments */
 @media (max-width: 768px) {
-    #departments {
-        margin-top: 0 !important;
-        padding-top: 0 !important;
-        margin-bottom: 0 !important;
-        padding-bottom: 0 !important;
+    #header .container {
+        padding: 6px 10px !important;
     }
     
-    #departments .department {
-        margin-bottom: 0 !important;
-        padding-bottom: 0 !important;
-    }
-    
-    #departments .department.industrial ul {
-        grid-template-columns: 1fr !important;
-        gap: 0 !important;
-        margin-top: 0 !important;
-        padding-top: 0 !important;
-        margin-bottom: 0 !important;
-        padding-bottom: 0 !important;
-    }
-    
-    #departments .department.industrial ul li {
-        border-right: none !important;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
-        border-left: none !important;
-        min-height: 80px !important;
-        width: 100% !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-    
-    #departments .department.industrial ul li:last-child {
-        border-bottom: none !important;
-        margin-bottom: 0 !important;
-        padding-bottom: 0 !important;
-    }
-    
-    #departments .department.industrial ul li:last-child a {
-        padding-bottom: 15px !important;
+    #header #logo {
+        height: 24px !important;
     }
     
     #departments .department.industrial ul li a {
-        min-height: 80px !important;
-        padding: 12px 15px !important;
-        width: 100% !important;
-        box-sizing: border-box !important;
-        margin: 0 !important;
+        padding: 5px 10px !important;
     }
     
     #departments .department.industrial ul li a img {
-        width: 45px !important;
-        height: 45px !important;
-        margin-right: 12px !important;
-        flex-shrink: 0 !important;
+        width: 28px !important;
+        height: 28px !important;
+        margin-right: 8px !important;
     }
     
     #departments .department.industrial ul li a span {
         font-size: 14px !important;
-        line-height: 1.3 !important;
+        line-height: 1.4 !important;
+        font-weight: 600 !important;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+        letter-spacing: 0.2px !important;
     }
     
-    #departments .department h3 {
-        font-size: 22px !important;
-        padding: 18px 15px 0 15px !important;
-        padding-top: 18px !important;
-        margin: 0 !important;
-        margin-bottom: 0 !important;
-        margin-top: 0 !important;
-    }
-    
-    #header {
-        padding: 12px 0 !important;
-        padding-bottom: 12px !important;
-        margin: 0 !important;
-        margin-bottom: 0 !important;
-        background-color: #ffffff !important;
-    }
-    
-    #header #logo {
-        height: 35px !important;
-    }
-    
-    #footer {
-        padding: 12px 0 !important;
-        padding-top: 12px !important;
-        padding-bottom: 12px !important;
-        margin-top: 0 !important;
-        margin-bottom: 0 !important;
-        background-color: #ffffff !important;
+    #footer .container {
+        padding: 6px 10px !important;
     }
     
     #footer .footer-logos {
-        flex-direction: column !important;
-        gap: 6px !important;
-        text-align: center !important;
+        gap: 2px !important;
     }
     
     #footer .footer-logos p {
-        margin: 0 !important;
-        color: #505050 !important;
-        font-size: 11px !important;
+        font-size: 9px !important;
     }
     
     #footer .footer-logos p img.logo-dyo {
-        height: 22px !important;
-        margin-bottom: 3px !important;
-        display: inline-block !important;
+        height: 16px !important;
     }
 }
 
 /* Small mobile (max-width: 480px) */
 @media (max-width: 480px) {
-    #departments .department.industrial ul li {
-        min-height: 70px !important;
+    #header .container {
+        padding: 6px 8px !important;
+    }
+    
+    #header #logo {
+        height: 22px !important;
     }
     
     #departments .department.industrial ul li a {
-        min-height: 70px !important;
-        padding: 10px 12px !important;
+        padding: 4px 8px !important;
     }
     
     #departments .department.industrial ul li a img {
-        width: 40px !important;
-        height: 40px !important;
-        margin-right: 10px !important;
+        width: 24px !important;
+        height: 24px !important;
+        margin-right: 6px !important;
     }
     
     #departments .department.industrial ul li a span {
         font-size: 13px !important;
-        line-height: 1.2 !important;
+        line-height: 1.35 !important;
+        font-weight: 600 !important;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+        letter-spacing: 0.2px !important;
+    }
+    
+    #footer .container {
+        padding: 6px 8px !important;
+    }
+    
+    #footer .footer-logos p {
+        font-size: 8px !important;
+    }
+    
+    #footer .footer-logos p img.logo-dyo {
+        height: 14px !important;
     }
     
     #departments .department h3 {
-        font-size: 20px !important;
-        padding: 15px 12px 0 12px !important;
+        font-size: 24px !important;
+        padding: 18px 16px 18px 16px !important;
+        padding-top: 18px !important;
+        letter-spacing: -0.7px !important;
+    }
+    
+    #header {
+        padding: 18px 0 !important;
+        padding-top: 18px !important;
+        padding-bottom: 18px !important;
+    }
+    
+    #footer {
+        padding: 18px 0 !important;
+        padding-top: 18px !important;
+        padding-bottom: 18px !important;
+        border-top: none !important;
+        box-shadow: none !important;
+    }
+    
+    #footer .footer-logos {
+        gap: 6px !important;
+    }
+    
+    #footer .footer-logos p {
+        font-size: 11px !important;
+        line-height: 1.4 !important;
+    }
+    
+    #footer .footer-logos p img.logo-dyo {
+        height: 24px !important;
     }
 }
 
@@ -958,7 +945,7 @@ main {
 /* Footer styles - updated for sticky footer */
 #footer {
     background-color: rgba(255, 255, 255, 0.9);
-    padding: 20px 0px;
+    padding: 16px 0px;
     margin-top: auto;
 }
 
@@ -1331,6 +1318,4 @@ main {
 	font-display: swap;
 	src: url(https://fonts.gstatic.com/s/sourcesanspro/v22/6xKydSBYKcSV-LCoeQqfX1RYOo3ig4vwlxdu.woff2) format('woff2');
 	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-}
 }
