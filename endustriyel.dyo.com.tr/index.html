@@ -150,6 +150,14 @@
             transform: scaleX(1);
         }
 
+        /* Keep dropdown fully in view on wide screens */
+        .landing-header nav.main-nav .sub-menu {
+            left: 0;
+            right: auto;
+            transform: none;
+            min-width: 240px;
+        }
+
         .header-actions {
             display: flex;
             align-items: center;
