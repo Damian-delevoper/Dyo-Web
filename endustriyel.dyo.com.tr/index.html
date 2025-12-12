@@ -37,20 +37,20 @@
     <style>
         :root {
             --dyo-red: #cf0a2c;
-            --dyo-dark: #0c1424;
-            --dyo-deep: #0f192d;
-            --text-primary: #e7e9ee;
-            --text-muted: #b8bdc9;
-            --card-border: rgba(255, 255, 255, 0.08);
-            --card-bg: rgba(17, 25, 40, 0.85);
-            --glass: rgba(255, 255, 255, 0.04);
+            --dyo-dark: #0d1222;
+            --dyo-deep: #f6f7fb;
+            --text-primary: #1f2430;
+            --text-muted: #5b6576;
+            --card-border: rgba(13, 18, 34, 0.08);
+            --card-bg: #ffffff;
+            --glass: rgba(13, 18, 34, 0.04);
         }
 
         html.landing {
             height: auto !important;
             min-height: 100%;
             overflow-y: auto !important;
-            background: #0b1221;
+            background: #ffffff;
         }
 
         body.landing-page {
@@ -60,10 +60,9 @@
             overflow-x: hidden;
             overflow-y: auto !important;
             background:
-                radial-gradient(circle at 20% 20%, rgba(207, 10, 44, 0.18), transparent 30%),
-                radial-gradient(circle at 80% 0%, rgba(255, 255, 255, 0.05), transparent 30%),
-                linear-gradient(135deg, #0b1221 0%, #0d1a30 55%, #0b111f 100%),
-                url('Content/assets/img/bg.jpeg') center/cover no-repeat fixed;
+                radial-gradient(circle at 20% 20%, rgba(207, 10, 44, 0.07), transparent 32%),
+                radial-gradient(circle at 80% 0%, rgba(13, 18, 34, 0.05), transparent 28%),
+                linear-gradient(180deg, #ffffff 0%, #f8f9fc 100%);
             color: var(--text-primary);
         }
 
@@ -75,8 +74,8 @@
             position: sticky;
             top: 0;
             z-index: 10;
-            background: rgba(11, 17, 31, 0.9);
-            backdrop-filter: blur(14px);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--card-border);
         }
 
@@ -173,18 +172,18 @@
         .btn.primary {
             background: linear-gradient(135deg, var(--dyo-red), #e12145);
             color: #fff;
-            box-shadow: 0 12px 30px rgba(207, 10, 44, 0.35);
+            box-shadow: 0 12px 30px rgba(207, 10, 44, 0.25);
         }
 
         .btn.primary:hover {
             transform: translateY(-1px);
-            box-shadow: 0 18px 36px rgba(207, 10, 44, 0.45);
+            box-shadow: 0 18px 36px rgba(207, 10, 44, 0.35);
         }
 
         .btn.ghost {
             border-color: var(--card-border);
             color: var(--text-primary);
-            background: rgba(255, 255, 255, 0.03);
+            background: #ffffff;
         }
 
         .btn.ghost:hover {
@@ -200,7 +199,7 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.05), transparent 35%);
+            background: radial-gradient(circle at 70% 30%, rgba(207, 10, 44, 0.06), transparent 35%);
             pointer-events: none;
         }
 
@@ -217,7 +216,7 @@
             font-size: 42px;
             line-height: 1.2;
             margin-bottom: 18px;
-            color: #f7f8fb;
+            color: var(--text-primary);
             letter-spacing: -0.5px;
         }
 
@@ -265,7 +264,7 @@
         .stat strong {
             display: block;
             font-size: 22px;
-            color: #fff;
+            color: var(--text-primary);
             margin-bottom: 4px;
         }
 
@@ -274,13 +273,13 @@
             border: 1px solid var(--card-border);
             border-radius: 16px;
             padding: 22px;
-            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+            box-shadow: 0 18px 40px rgba(13, 18, 34, 0.08);
         }
 
         .hero-card h3 {
             font-size: 20px;
             margin-bottom: 12px;
-            color: #fff;
+            color: var(--text-primary);
         }
 
         .checklist {
@@ -349,14 +348,14 @@
 
         .solution-card .title {
             font-weight: 700;
-            color: #fff;
+            color: var(--text-primary);
             line-height: 1.35;
         }
 
         .solution-card:hover {
             transform: translateY(-4px);
             border-color: rgba(207, 10, 44, 0.35);
-            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+            box-shadow: 0 18px 40px rgba(13, 18, 34, 0.12);
         }
 
         .feature-grid {
@@ -370,11 +369,11 @@
             border: 1px solid var(--card-border);
             border-radius: 14px;
             padding: 20px;
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+            box-shadow: inset 0 1px 0 rgba(13, 18, 34, 0.04);
         }
 
         .feature-card h3 {
-            color: #fff;
+            color: var(--text-primary);
             font-size: 19px;
             margin-bottom: 8px;
         }
@@ -409,11 +408,11 @@
             font-weight: 800;
             color: #fff;
             margin-bottom: 10px;
-            box-shadow: 0 10px 24px rgba(207, 10, 44, 0.35);
+            box-shadow: 0 10px 24px rgba(207, 10, 44, 0.25);
         }
 
         .cta-panel {
-            background: linear-gradient(120deg, #121d34 0%, #0d1629 50%, #0b1221 100%);
+            background: linear-gradient(120deg, #ffffff 0%, #f6f7fb 60%, #ffffff 100%);
             border: 1px solid var(--card-border);
             border-radius: 18px;
             padding: 28px;
@@ -424,7 +423,7 @@
         }
 
         .cta-panel h3 {
-            color: #fff;
+            color: var(--text-primary);
             font-size: 24px;
             margin-bottom: 10px;
         }
@@ -443,7 +442,7 @@
         .landing-footer {
             border-top: 1px solid var(--card-border);
             padding: 38px 0 28px;
-            background: rgba(6, 10, 18, 0.9);
+            background: #f9fafc;
             color: var(--text-muted);
             margin-top: 64px;
         }
@@ -459,7 +458,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            color: #fff;
+            color: var(--text-primary);
             font-weight: 700;
         }
 
@@ -543,11 +542,11 @@
             <div class="container hero-grid">
                 <div class="hero-copy">
                     <span class="eyebrow">Индустриальные покрытия DYO</span>
-                    <h1>Профессиональные решения для тяжелой промышленности, транспорта и инфраструктуры</h1>
+                    <h1>Инженерные системы защиты металла под ваши условия эксплуатации</h1>
                     <p class="lede">
-                        Интегрированные системы защиты металла, бетона и композитов: антикоррозионные грунты,
-                        эмали, порошковые и морские покрытия, разработанные в собственных лабораториях DYO и
-                        подтвержденные международными сертификатами.
+                        Команда технологов DYO разрабатывает и внедряет покрытия на базе лабораторных испытаний: антикоррозионные грунты,
+                        промышленная и порошковая линейка, решения для авторемонта, морского сегмента и рулонного металла.
+                        Подбираем систему под оборудование, климат и требования вашего производства.
                     </p>
                     <div class="hero-actions">
                         <a class="btn primary" href="ru/napravlenya/promyshlennye-pokrytiya.html">Каталог решений</a>
@@ -555,8 +554,8 @@
                     </div>
                     <div class="hero-highlights">
                         <div class="stat">
-                            <strong>95+ лет</strong>
-                            опыта в индустриальных покрытиях
+                            <strong>С 1954</strong>
+                            собственные лабораторные испытания
                         </div>
                         <div class="stat">
                             <strong>360°</strong>
@@ -564,18 +563,18 @@
                         </div>
                         <div class="stat">
                             <strong>ISO/IMO</strong>
-                            соответствие отраслевым стандартам
+                            подтверждение отраслевых стандартов
                         </div>
                     </div>
                 </div>
                 <div class="hero-card">
                     <h3>Почему выбирают DYO</h3>
                     <ul class="checklist">
-                        <li>Стойкость к коррозии, ультрафиолету и химическим нагрузкам</li>
-                        <li>Высокие сроки службы покрытий при снижении затрат на обслуживание</li>
-                        <li>Точные подборы систем под конкретные условия эксплуатации</li>
-                        <li>Техническое сопровождение на производстве и на объекте</li>
-                        <li>Глобальная логистика и локальные стандарты качества</li>
+                        <li>Реальные испытания на адгезию, механическую стойкость и солевой туман</li>
+                        <li>Сравнительные выкраски для расчета расхода и экономии материалов</li>
+                        <li>Подбор системы под цикл, оборудование и требования заказчика</li>
+                        <li>Технологические карты нанесения и запуск на площадке</li>
+                        <li>Поддержка экспертов DYO и локальная логистика</li>
                     </ul>
                 </div>
             </div>
@@ -586,7 +585,7 @@
                 <div class="section-head">
                     <span class="eyebrow">Линейки</span>
                     <h2>Ключевые индустриальные направления</h2>
-                    <p>Выберите сегмент, чтобы перейти к продуктам и рекомендациям по системам.</p>
+                    <p>Выберите сегмент, чтобы перейти к конкретным продуктам и рекомендациям по системам нанесения.</p>
                 </div>
                 <div class="solution-grid">
                     <a class="solution-card" href="ru/napravlenya/promyshlennye-pokrytiya.html">
@@ -630,19 +629,19 @@
                 <div class="feature-grid">
                     <div class="feature-card">
                         <h3>Доказанная долговечность</h3>
-                        <p>Испытания по ISO, IMO и отраслевым стандартам подтверждают устойчивость к коррозии, соли, влаге и ультрафиолету.</p>
+                        <p>Испытания по ISO, IMO и отраслевым стандартам: защита от коррозии, соли, влаги и ультрафиолета подтверждена лабораторно.</p>
                     </div>
                     <div class="feature-card">
                         <h3>Точные подборы под задачу</h3>
-                        <p>Подбор систем по типу субстрата, климату, механическим нагрузкам и доступной технологии нанесения.</p>
+                        <p>Системы под конкретный субстрат, климат и механические нагрузки с учетом оборудования и доступных технологий нанесения.</p>
                     </div>
                     <div class="feature-card">
                         <h3>Ускорение запуска</h3>
-                        <p>Технологические карты нанесения, регламенты сушки и обучение персонала сокращают простой линий.</p>
+                        <p>Технологические карты нанесения, регламенты сушки и обучение персонала сокращают простой линий и снижают ошибки.</p>
                     </div>
                     <div class="feature-card">
                         <h3>Поддержка на объекте</h3>
-                        <p>Инженеры DYO проводят контроль толщины, адгезии и помогают оптимизировать расход материалов.</p>
+                        <p>Инженеры DYO контролируют толщину, адгезию и помогают оптимизировать расход материалов на объекте.</p>
                     </div>
                 </div>
             </div>
@@ -683,7 +682,7 @@
             <div class="container cta-panel">
                 <div>
                     <h3>Нужна надежная система покрытия под ваш проект?</h3>
-                    <p>Расскажите о задачах — предложим готовую систему или разработаем индивидуальное решение под ваши условия эксплуатации.</p>
+                    <p>Расскажите о задачах — предложим готовую систему или разработаем индивидуальное решение под ваши условия эксплуатации. Для консультации: <a href="mailto:techdir@dyo-lkm.ru">techdir@dyo-lkm.ru</a> или <a href="tel:8-800-222-39-34">8-800-222-39-34</a>.</p>
                 </div>
                 <div class="actions">
                     <a class="btn primary" href="ru/napravlenya/produkty/produkty.html">Открыть каталог</a>
