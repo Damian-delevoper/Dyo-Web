@@ -48,6 +48,12 @@
                     <span class="brand-tagline">Промышленные покрытия с 1927 года</span>
                 </div>
             </a>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Открыть меню" />
+            <label for="nav-toggle" class="mobile-nav-toggle" aria-label="Меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
             <nav class="main-nav" aria-label="Основная навигация">
                 <ul id="main-menu">
                     <li class="has-sub-menu company-menu">
@@ -71,6 +77,7 @@
                     </li>
                 </ul>
             </nav>
+            <div class="nav-overlay"></div>
         </div>
     </header>
 
@@ -255,5 +262,31 @@
     <script src="Content/assets/js/main.js"></script>
     <script src="bundles/jquery3445?v=8Oos0avDZyPg-cbyVzvkIfERIE1DGSe3sRQdCSYrgEQ1"></script>
     <script src="bundles/bootstrap867d?v=X8gnNIYDSsAzCxLBuTaZy64JJqo9mzWM5GPsE4TJLNI1"></script>
+    <script>
+        (function() {
+            var navToggle = document.getElementById('nav-toggle');
+            var navOverlay = document.querySelector('.nav-overlay');
+            var navLinks = document.querySelectorAll('nav.main-nav a');
+            if (!navToggle) return;
+
+            function closeNav() {
+                navToggle.checked = false;
+            }
+
+            if (navOverlay) {
+                navOverlay.addEventListener('click', closeNav);
+            }
+
+            navLinks.forEach(function(link) {
+                link.addEventListener('click', closeNav);
+            });
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeNav();
+                }
+            });
+        })();
+    </script>
 </body>
 </html>
