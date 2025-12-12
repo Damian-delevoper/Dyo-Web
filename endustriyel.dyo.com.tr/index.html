@@ -150,14 +150,23 @@
             transform: scaleX(1);
         }
 
-        /* Keep dropdown fully in view on wide screens */
+        /* Keep dropdowns fully visible and usable */
         .landing-header nav.main-nav .sub-menu {
             left: auto;
             right: 0;
             transform: none;
             min-width: 240px;
-            max-width: calc(100vw - 40px);
+            max-width: calc(100vw - 32px);
+            max-height: 70vh;
+            overflow-y: auto;
             white-space: nowrap;
+            z-index: 20;
+        }
+
+        /* Show submenu on focus for keyboard users */
+        #main-menu .has-sub-menu:focus-within .sub-menu {
+            opacity: 1;
+            visibility: visible;
         }
 
         .header-actions {
