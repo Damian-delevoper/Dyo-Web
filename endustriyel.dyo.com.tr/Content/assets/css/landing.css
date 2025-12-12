@@ -803,3 +803,13 @@ nav.main-nav a:hover::after {
     }
 }
 
+/* Ensure landing page always scrolls on mobile/tablet */
+html.landing,
+body.landing-page {
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+}
+
