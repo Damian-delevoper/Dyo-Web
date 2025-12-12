@@ -10,8 +10,7 @@
     <meta name="keywords"
           content="dyo, Dyo Boya, эмаль/краска, растворитель, грунт, цвет, обустройство, теплоизоляция, нанесение краски/нанесение эмали, мебельные ЛКМ, промышленные ЛКМ, авторемонтные ЛКМ, судовые покрытия, DYO Transocean">
 
-    <meta property="og:url" content="https://dyo.com.tr" />
-    <meta property="og:type" content="website" />
+
     <meta property="og:title" content="DYO" />
     <meta property="og:description"
           content="С 1927 года DYO остается пионером в производстве лакокрасочных материалов, предлагая решения для индустриальных задач." />
@@ -191,6 +190,15 @@
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 4px 0;
             min-width: 360px;
+            white-space: normal;
+        }
+
+        /* Match company dropdown styling to directions */
+        #main-menu .company-menu .sub-menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 4px 0;
+            min-width: 260px;
             white-space: normal;
         }
 
@@ -579,7 +587,7 @@
             </a>
             <nav class="main-nav" aria-label="Основная навигация">
                 <ul id="main-menu">
-                    <li class="has-sub-menu">
+                    <li class="has-sub-menu company-menu">
                         <a href="ru/o-kompan.html">О компании</a>
                         <ul class="sub-menu">
                             <li><a href="ru/o-kompan.html">О нас</a></li>
