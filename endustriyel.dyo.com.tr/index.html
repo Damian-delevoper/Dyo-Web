@@ -119,7 +119,7 @@
             list-style: none;
             display: flex;
             gap: 26px;
-            font-weight: 600;
+            font-weight: 700;
             color: var(--text-muted);
         }
 
@@ -231,12 +231,13 @@
             display: inline-flex;
             padding: 6px 12px;
             border-radius: 999px;
-            border: 1px solid var(--card-border);
+            border: 1px solid var(--dyo-red);
             text-transform: uppercase;
             letter-spacing: 1px;
             font-weight: 700;
             font-size: 12px;
-            color: #f7f8fb;
+            color: var(--text-primary);
+            background: rgba(207, 10, 44, 0.06);
             margin-bottom: 12px;
         }
 
@@ -527,11 +528,27 @@
                 </div>
             </a>
             <nav class="main-nav" aria-label="Основная навигация">
-                <ul>
-                    <li><a href="#solutions">Решения</a></li>
-                    <li><a href="#advantages">Преимущества</a></li>
-                    <li><a href="#process">Сопровождение</a></li>
-                    <li><a href="ru/o-kompan.html">О компании</a></li>
+                <ul id="main-menu">
+                    <li><a href="index.html">Главная страница</a></li>
+                    <li class="has-sub-menu">
+                        <a href="ru/o-kompan.html">О компании</a>
+                        <ul class="sub-menu">
+                            <li><a href="ru/o-kompan.html">О нас</a></li>
+                            <li><a href="ru/o-kompan/realnye-istorii.html">Реальные истории</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-sub-menu">
+                        <a href="#solutions">Направления</a>
+                        <ul class="sub-menu">
+                            <li><a href="ru/napravlenya/promyshlennye-pokrytiya.html">Промышленные покрытия</a></li>
+                            <li><a href="ru/napravlenya/antikorrozionnye-pokrytiya.html">Антикоррозионные покрытия</a></li>
+                            <li><a href="ru/napravlenya/poroshkovye-pokrytiya.html">Порошковые покрытия</a></li>
+                            <li><a href="ru/napravlenya/morskie-pokrytiya.html">Морские покрытия</a></li>
+                            <li><a href="ru/napravlenya/lakokrasochnye-pokrytiya-dlya-rulonnogo-metalla.html">Покрытия для рулонного металла</a></li>
+                            <li><a href="ru/napravlenya/materialy-dlya-remonta-zdaniy-iz-metallokonstruktsiy.html">Ремонт металлоконструкций</a></li>
+                            <li><a href="ru/napravlenya/avtoremontnye-lakokrasochnye-materialy.html">Авторемонтные материалы</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
             <div class="header-actions">
