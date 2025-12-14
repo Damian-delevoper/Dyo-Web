@@ -1436,11 +1436,17 @@ main {
 
     .mobile-bottom-nav .nav-item.active {
         color: #cf0a2c;
+        font-weight: 700;
     }
 
     /* Add padding to body to prevent content from being hidden behind bottom nav */
     body {
         padding-bottom: 60px;
+    }
+    
+    /* Ensure consistent styling across all pages */
+    .mobile-bottom-nav {
+        padding: 8px 0 calc(8px + env(safe-area-inset-bottom));
     }
 
     /* Slide-out Menu Overlay */

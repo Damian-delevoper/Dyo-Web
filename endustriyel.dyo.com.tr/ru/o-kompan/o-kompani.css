@@ -5872,7 +5872,15 @@ article:hover {
     font-size: 16px;
     font-weight: 700;
     margin-bottom: 16px;
-    border-bottom: 1px solid #dbdbdb
+    border-bottom: 1px solid #dbdbdb;
+    color: #393939;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.pdf-link:hover {
+    color: #cf0a2c;
+    background-color: #f9f9f9;
 }
 
 .pdf-viewer {

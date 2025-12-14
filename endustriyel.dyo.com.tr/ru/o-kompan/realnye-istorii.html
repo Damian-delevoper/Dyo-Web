@@ -56,6 +56,9 @@
                   >Реальные истории</a
                 >
               </li>
+              <li>
+                <a href="tekhnicheskaya-dokumentatsiya.html">Техническая документация</a>
+              </li>
             </ul>
           </li>
           <li class="has-sub-menu">
@@ -162,7 +165,7 @@
             <i class="fa fa-th-large"></i>
             <span>Направления</span>
         </a>
-        <button class="nav-item nav-menu-toggle" id="mobile-menu-toggle">
+        <button class="nav-item nav-menu-toggle" id="mobile-menu-toggle" type="button">
             <i class="fa fa-bars"></i>
             <span>Меню</span>
         </button>
@@ -177,7 +180,7 @@
         <div class="mobile-menu-drawer">
             <div class="mobile-menu-header">
                 <h3>Меню</h3>
-                <button class="mobile-menu-close" id="mobile-menu-close">
+                <button class="mobile-menu-close" id="mobile-menu-close" type="button" aria-label="Закрыть меню">
                     <i class="fa fa-times"></i>
                 </button>
             </div>
@@ -208,13 +211,90 @@
                     <ul class="mobile-submenu">
                         <li><a href="../o-kompan.html">О нас</a></li>
                         <li><a href="realnye-istorii.html">Реальные истории</a></li>
+                        <li><a href="tekhnicheskaya-dokumentatsiya.html">Техническая документация</a></li>
                     </ul>
                 </li>
             </ul>
         </div>
     </div>
 
+    <script src="../../Content/assets/js/mobile-nav.js"></script>
     <script src="o-kompani.js"></script>
+    <script type="text/javascript">
+    // Ensure mobile menu works on this page
+    (function() {
+        function initMobileMenu() {
+            var toggle = document.getElementById('mobile-menu-toggle');
+            var overlay = document.getElementById('mobile-menu-overlay');
+            var closeBtn = document.getElementById('mobile-menu-close');
+            var parents = document.querySelectorAll('.mobile-menu-parent');
+            
+            if (!overlay || !toggle) return;
+            
+            function openMenu() {
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+            
+            function closeMenu() {
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+                parents.forEach(function(p) { 
+                    p.classList.remove('active'); 
+                });
+            }
+            
+            // Open menu
+            toggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                openMenu();
+            });
+            
+            // Close menu button
+            if (closeBtn) {
+                closeBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    closeMenu();
+                });
+            }
+            
+            // Close on overlay click
+            overlay.addEventListener('click', function(e) {
+                if (e.target === overlay) {
+                    closeMenu();
+                }
+            });
+            
+            // Close on Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && overlay.classList.contains('active')) {
+                    closeMenu();
+                }
+            });
+            
+            // Toggle submenus
+            parents.forEach(function(parent) {
+                var link = parent.querySelector('.mobile-menu-link');
+                if (link) {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        parent.classList.toggle('active');
+                    });
+                }
+            });
+        }
+        
+        // Initialize when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initMobileMenu);
+        } else {
+            initMobileMenu();
+        }
+    })();
+    </script>
 </body>
 </html>
 
