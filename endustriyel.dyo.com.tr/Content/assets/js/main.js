@@ -10,7 +10,7 @@
     
     // Exit early if search elements don't exist
     if (!searchIcon || !modal || !searchForm) {
-        console.log('Search functionality not available - elements not found');
+        // Search functionality not available - elements not found
         // Continue with other functionality
     } else {
 
@@ -114,7 +114,7 @@
                 // TODO: Implement client-side search or connect to a search service
                 
             } catch (error) {
-                console.error('Search error:', error);
+                // Search error - show user-friendly message
                 alert('Search failed. Please try again.');
             } finally {
                 if (submitBtn) {
@@ -224,4 +224,9 @@
         }
     }, 250));
 
+    // ======================
+    // MOBILE/TABLET NAVIGATION
+    // ======================
+    // Mobile menu functionality is handled by mobile-nav.js
+    // This ensures consistent behavior across all pages
 });

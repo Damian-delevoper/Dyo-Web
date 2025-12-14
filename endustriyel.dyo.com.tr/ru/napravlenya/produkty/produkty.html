@@ -24,12 +24,12 @@
   <body>
   <header id="header">
     <div class="container">
-        <a href="../../../ru.html" id="logo">
+        <a href="../../../index.html" id="logo">
             <img src="../../../Content/assets/img/logo.png" alt="dyo logo" />
       </a>
       <ul id="main-menu">
         <li>
-                    <a href="../../../ru.html">Главная страница</a>
+                    <a href="../../../index.html">Главная страница</a>
         </li>
         <li class="has-sub-menu">
           <a href="../../o-kompan.html">О КОМПАНИИ</a>
@@ -40,10 +40,13 @@
             <li>
               <a href="../../o-kompan/realnye-istorii.html">Реальные истории</a>
             </li>
+            <li>
+              <a href="../../o-kompan/tekhnicheskaya-dokumentatsiya.html">Техническая документация</a>
+            </li>
           </ul>
         </li>
         <li class="has-sub-menu">
-                    <a href="../../../ru.html">НАПРАВЛЕНИЯ</a>
+                    <a href="../../../index.html">НАПРАВЛЕНИЯ</a>
           <ul class="sub-menu">
             <li>
                             <a href="../promyshlennye-pokrytiya.html">Промышленные покрытия</a>
@@ -76,7 +79,7 @@
 <section class="section">
     <div class="container">
     <ul class="breadcrumbs">
-                    <li><a href="../../../ru.html">Главная страница</a></li>
+                    <li><a href="../../../index.html">Главная страница</a></li>
                     <li><a href="../promyshlennye-pokrytiya.html">Промышленные покрытия</a></li>
             <li><a href="produkty.html">Продукция</a></li>
     </ul>
@@ -84,7 +87,12 @@
         <h1 class="medium-space-bottom">Продукция</h1>
 
         <div id="products">
-            <input id="product-search" type="text" name="search" placeholder="Введите название продукта, который хотите найти" class="form-control" />
+            <div id="products-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; gap: 12px;">
+                <input id="product-search" type="text" name="search" placeholder="Введите название продукта, который хотите найти" class="form-control" style="flex: 1;" />
+                <button id="mobile-filter-toggle" class="btn btn-primary" type="button" style="display: none; min-width: 120px; white-space: nowrap;">
+                    <i class="fa fa-filter"></i> Фильтры
+                </button>
+            </div>
             
             <!-- Filter Sidebar -->
             <div id="product-filters">
@@ -392,10 +400,14 @@
                 }
 
                 var visibleCounter = 0;
+                var searchText = productSearch.val().toLowerCase();
+                
                 $.each(products, function () {
                     var product = $(this);
                     var singleProductFilters = (product.data("filters") + "").split(",");
                     var isVisible = true;
+                    
+                    // Check filters
                     for (var filter in filters) {
                         if (isVisible && filters[filter].length > 0) {
                             var found = false;
@@ -406,6 +418,12 @@
                             });
                             isVisible = found;
                         }
+                    }
+                    
+                    // Also check search text if present
+                    if (isVisible && searchText !== '') {
+                        var productText = product.find('h3').text().toLowerCase();
+                        isVisible = productText.indexOf(searchText) > -1;
                     }
 
                     if (isVisible) {
@@ -483,14 +501,41 @@
                 return false;
             });
 
-            productSearch.on('change paste keyup', function () {
+            productSearch.on('change paste keyup input', function () {
                 var text = this.value.toLowerCase();
                 var visibleCounter = 0;
+                
+                // Apply search to all products (including filtered ones)
                 products.each(function () {
                     var elem = $(this);
-                    if (elem.find('h3').text().toLowerCase().indexOf(text) > -1) {
-                        elem.show();
-                        visibleCounter += 1;
+                    var productText = elem.find('h3').text().toLowerCase();
+                    
+                    // Check if product matches search AND current filters
+                    var matchesSearch = text === '' || productText.indexOf(text) > -1;
+                    
+                    if (matchesSearch) {
+                        // Check if product matches current filters
+                        var singleProductFilters = (elem.data("filters") + "").split(",");
+                        var matchesFilters = true;
+                        
+                        for (var filter in filters) {
+                            if (matchesFilters && filters[filter].length > 0) {
+                                var found = false;
+                                $.each(filters[filter], function (index, i) {
+                                    if (!found) {
+                                        found = singleProductFilters.indexOf("" + i) > -1;
+                                    }
+                                });
+                                matchesFilters = found;
+                            }
+                        }
+                        
+                        if (matchesFilters) {
+                            elem.show();
+                            visibleCounter += 1;
+                        } else {
+                            elem.hide();
+                        }
                     } else {
                         elem.hide();
                     }
@@ -527,7 +572,284 @@
 
             // Initialize filters
             applyFilters();
+            
+            // Mobile filter toggle functionality
+            var mobileFilterToggle = $('#mobile-filter-toggle');
+            var productFiltersContainer = $('#product-filters');
+            
+            // Show/hide filter toggle button based on screen size
+            function checkScreenSize() {
+                if (window.innerWidth <= 991) {
+                    mobileFilterToggle.show();
+                    productFiltersContainer.hide();
+                } else {
+                    mobileFilterToggle.hide();
+                    productFiltersContainer.show();
+                }
+            }
+            
+            // Check on load and resize
+            checkScreenSize();
+            $(window).on('resize', checkScreenSize);
+            
+            // Toggle filters on mobile
+            mobileFilterToggle.on('click', function(e) {
+                e.preventDefault();
+                productFiltersContainer.slideToggle(300);
+                $(this).toggleClass('active');
+            });
+            
+            // Close filters when clicking outside on mobile
+            $(document).on('click', function(e) {
+                if (window.innerWidth <= 991) {
+                    if (!$(e.target).closest('#product-filters, #mobile-filter-toggle').length) {
+                        productFiltersContainer.slideUp(300);
+                        mobileFilterToggle.removeClass('active');
+                    }
+                }
+            });
         });
+    </script>
+    <style>
+        /* Mobile/Tablet filter improvements */
+        @media (max-width: 991px) {
+            #products-header {
+                flex-wrap: wrap;
+            }
+            
+            #product-search {
+                width: 100%;
+                margin-bottom: 12px !important;
+                font-size: 16px !important; /* Prevents zoom on iOS */
+            }
+            
+            #mobile-filter-toggle {
+                display: inline-flex !important;
+                align-items: center;
+                gap: 8px;
+                padding: 12px 20px;
+                font-size: 16px;
+                font-weight: 600;
+            }
+            
+            #mobile-filter-toggle.active {
+                background-color: #cf0a2c;
+                color: #fff;
+            }
+            
+            #product-filters {
+                display: none;
+                margin-top: 16px;
+                margin-bottom: 24px;
+            }
+            
+            #product-filters.show {
+                display: block;
+            }
+            
+            .product-filter {
+                margin-bottom: 12px;
+            }
+            
+            .product-filter h5 {
+                padding: 14px 16px;
+                font-size: 16px;
+                cursor: pointer;
+                -webkit-tap-highlight-color: transparent;
+            }
+            
+            .product-filter ul li {
+                padding: 12px 16px;
+                font-size: 15px;
+                cursor: pointer;
+                -webkit-tap-highlight-color: rgba(207, 10, 44, 0.1);
+            }
+            
+            /* Improve touch targets */
+            #btn-clear-filters {
+                min-height: 44px;
+                padding: 12px 20px;
+                font-size: 15px;
+            }
+            
+            #current-filters li {
+                min-height: 36px;
+                padding: 8px 16px;
+                font-size: 14px;
+                -webkit-tap-highlight-color: rgba(207, 10, 44, 0.1);
+            }
+        }
+        
+        @media (max-width: 575px) {
+            #products-header {
+                flex-direction: column;
+            }
+            
+            #mobile-filter-toggle {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            #product-search {
+                width: 100%;
+            }
+        }
+        
+        /* Ensure search works on mobile keyboards */
+        #product-search {
+            -webkit-appearance: none;
+            border-radius: 4px;
+        }
+        
+        /* Improve filter interaction on touch devices */
+        @media (hover: none) and (pointer: coarse) {
+            .product-filter ul li:hover {
+                background-color: transparent;
+            }
+            
+            .product-filter ul li:active {
+                background-color: #f5f5f5;
+            }
+        }
+    </style>
+
+    <!-- Mobile/Tablet Bottom Navigation -->
+    <nav id="mobile-bottom-nav" class="mobile-bottom-nav">
+        <a href="../../../index.html" class="nav-item">
+            <i class="fa fa-home"></i>
+            <span>Главная</span>
+        </a>
+        <a href="../../../index.html" class="nav-item">
+            <i class="fa fa-th-large"></i>
+            <span>Направления</span>
+        </a>
+        <button class="nav-item nav-menu-toggle" id="mobile-menu-toggle" type="button">
+            <i class="fa fa-bars"></i>
+            <span>Меню</span>
+        </button>
+        <a href="../../o-kompan.html" class="nav-item">
+            <i class="fa fa-info-circle"></i>
+            <span>О компании</span>
+        </a>
+    </nav>
+
+    <!-- Mobile/Tablet Slide-out Menu -->
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay">
+        <div class="mobile-menu-drawer">
+            <div class="mobile-menu-header">
+                <h3>Меню</h3>
+                <button class="mobile-menu-close" id="mobile-menu-close" type="button" aria-label="Закрыть меню">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <ul class="mobile-menu-list">
+                <li>
+                    <a href="../../../index.html">Главная страница</a>
+                </li>
+                <li class="mobile-menu-parent">
+                    <a href="../../../index.html" class="mobile-menu-link">
+                        <span>НАПРАВЛЕНИЯ</span>
+                        <i class="fa fa-chevron-down"></i>
+                    </a>
+                    <ul class="mobile-submenu">
+                        <li><a href="../promyshlennye-pokrytiya.html">Промышленные покрытия</a></li>
+                        <li><a href="../antikorrozionnye-pokrytiya.html">Антикоррозионные покрытия</a></li>
+                        <li><a href="../poroshkovye-pokrytiya.html">Порошковые покрытия</a></li>
+                        <li><a href="../morskie-pokrytiya.html">Морские покрытия</a></li>
+                        <li><a href="../lakokrasochnye-pokrytiya-dlya-rulonnogo-metalla.html">Лакокрасочные покрытия для рулонного металла</a></li>
+                        <li><a href="../materialy-dlya-remonta-zdaniy-iz-metallokonstruktsiy.html">Материалы для ремонта зданий из металлоконструкций</a></li>
+                        <li><a href="../avtoremontnye-lakokrasochnye-materialy.html">Авторемонтные лакокрасочные материалы</a></li>
+                    </ul>
+                </li>
+                <li class="mobile-menu-parent">
+                    <a href="../../o-kompan.html" class="mobile-menu-link">
+                        <span>О КОМПАНИИ</span>
+                        <i class="fa fa-chevron-down"></i>
+                    </a>
+                    <ul class="mobile-submenu">
+                        <li><a href="../../o-kompan/o-nas.html">О нас</a></li>
+                        <li><a href="../../o-kompan/realnye-istorii.html">Реальные истории</a></li>
+                        <li><a href="../../o-kompan/tekhnicheskaya-dokumentatsiya.html">Техническая документация</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="../../../Content/assets/js/mobile-nav.js"></script>
+    <script type="text/javascript">
+    // Ensure mobile menu works on this page
+    (function() {
+        function initMobileMenu() {
+            var toggle = document.getElementById('mobile-menu-toggle');
+            var overlay = document.getElementById('mobile-menu-overlay');
+            var closeBtn = document.getElementById('mobile-menu-close');
+            var parents = document.querySelectorAll('.mobile-menu-parent');
+            
+            if (!overlay || !toggle) return;
+            
+            function openMenu() {
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+            
+            function closeMenu() {
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+                parents.forEach(function(p) { 
+                    p.classList.remove('active'); 
+                });
+            }
+            
+            // Open menu
+            toggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                openMenu();
+            });
+            
+            // Close menu button
+            if (closeBtn) {
+                closeBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    closeMenu();
+                });
+            }
+            
+            // Close on overlay click
+            overlay.addEventListener('click', function(e) {
+                if (e.target === overlay) {
+                    closeMenu();
+                }
+            });
+            
+            // Close on Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && overlay.classList.contains('active')) {
+                    closeMenu();
+                }
+            });
+            
+            // Toggle submenus
+            parents.forEach(function(parent) {
+                var link = parent.querySelector('.mobile-menu-link');
+                if (link) {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        parent.classList.toggle('active');
+                    });
+                }
+            });
+        }
+        
+        // Initialize when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initMobileMenu);
+        } else {
+            initMobileMenu();
+        }
+    })();
     </script>
 </body>
 </html>

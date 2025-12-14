@@ -37,4 +37,10 @@ document.addEventListener('DOMContentLoaded', function() {
     } catch (error) {
         // Swiper initialization error (silent fail for production)
     }
+
+    // ======================
+    // MOBILE/TABLET NAVIGATION
+    // ======================
+    // Mobile menu functionality is handled by mobile-nav.js
+    // This ensures consistent behavior across all pages
 });
