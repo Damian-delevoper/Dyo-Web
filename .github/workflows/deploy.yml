@@ -31,8 +31,9 @@ jobs:
       
       - name: Copy website files
         run: |
-          # Copy the website folder contents to the root for GitHub Pages
-          cp -r endustriyel.dyo.com.tr/* ${{ github.workspace }}/_site/ || mkdir -p ${{ github.workspace }}/_site && cp -r endustriyel.dyo.com.tr/* ${{ github.workspace }}/_site/
+          # Create _site directory and copy website files
+          mkdir -p _site
+          cp -r endustriyel.dyo.com.tr/* _site/
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
