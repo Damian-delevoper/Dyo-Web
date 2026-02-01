@@ -1,9 +1,0 @@
-[build]
-  publish = "endustriyel.dyo.com.tr"
-  command = "echo 'No build step needed'"
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-

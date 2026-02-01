@@ -4,6 +4,7 @@
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="o-kompan/o-kompani.css?v=9">
+    <link rel="stylesheet" href="../Content/assets/css/landing.css?ver=3">
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -32,62 +33,56 @@
       }
     </style>
   </head>
-  <body>
-    <header id="header">
-      <div class="container">
-        <a href="../index.html" id="logo">
-          <img src="../Content/assets/img/logo.png" alt="dyo logo" />
-        </a>
-        <ul id="main-menu">
-          <li>
-            <a href="../index.html"
-              >Главная страница</a
-            >
-          </li>
-          <li class="has-sub-menu">
-            <a href="o-kompan.html">О КОМПАНИИ</a>
-            <ul class="sub-menu">
-              <li>
-                <a href="o-kompan.html">О нас</a>
-              </li>
-              <li>
-                <a href="o-kompan/realnye-istorii.html">Реальные истории</a>
-              </li>
-              <li>
-                <a href="o-kompan/tekhnicheskaya-dokumentatsiya.html">Техническая документация</a>
-              </li>
-            </ul>
-          </li>
-          <li class="has-sub-menu">
-            <a href="../index.html">НАПРАВЛЕНИЯ</a>
-            <ul class="sub-menu">
-              <li>
-                <a href="napravlenya/promyshlennye-pokrytiya.html">Промышленные покрытия</a>
-              </li>
-              <li>
-                <a href="napravlenya/antikorrozionnye-pokrytiya.html">Антикоррозионные покрытия</a>
-              </li>
-              <li>
-                <a href="napravlenya/poroshkovye-pokrytiya.html">Порошковые покрытия</a>
-              </li>
-              <li>
-                <a href="napravlenya/morskie-pokrytiya.html">Морские покрытия</a>
-              </li>
-              <li>
-                <a href="napravlenya/lakokrasochnye-pokrytiya-dlya-rulonnogo-metalla.html">Лакокрасочные покрытия для рулонного металла</a>
-              </li>
-              <li>
-                <a href="napravlenya/materialy-dlya-remonta-zdaniy-iz-metallokonstruktsiy.html">Материалы для ремонта зданий из металлоконструкций</a>
-              </li>
-              <li>
-                <a href="napravlenya/avtoremontnye-lakokrasochnye-materialy.html"
-                  >Авторемонтные лакокрасочные материалы</a
-                >
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
+  <body class="o-kompan-page">
+    <header class="landing-header">
+        <div class="container header-inner">
+            <a class="brand" href="../index.html" aria-label="DYO Industrial">
+                <img src="../Content/assets/img/logo.png" alt="Dyo logo" />
+                <div class="brand-copy">
+                    <span class="brand-name">DYO Industrial</span>
+                    <span class="brand-tagline">Промышленные покрытия с 1927 года</span>
+                </div>
+            </a>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Открыть меню" />
+            <label for="nav-toggle" class="mobile-nav-toggle" aria-label="Меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <nav class="main-nav" aria-label="Основная навигация">
+                <ul id="main-menu">
+                    <li class="has-sub-menu company-menu">
+                        <a href="o-kompan.html">О компании</a>
+                        <ul class="sub-menu">
+                            <li><a href="o-kompan.html">О нас</a></li>
+                            <li><a href="o-kompan/realnye-istorii.html">Реальные истории</a></li>
+                            <li><a href="o-kompan/tekhnicheskaya-dokumentatsiya.html">Техническая документация</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-sub-menu directions-menu">
+                        <a href="../index.html#solutions">Направления</a>
+                        <ul class="sub-menu">
+                            <li><a href="napravlenya/promyshlennye-pokrytiya.html">Промышленные покрытия</a></li>
+                            <li><a href="napravlenya/antikorrozionnye-pokrytiya.html">Антикоррозионные покрытия</a></li>
+                            <li><a href="napravlenya/morskie-pokrytiya.html">Морские покрытия</a></li>
+                            <li><a href="napravlenya/lakokrasochnye-pokrytiya-dlya-rulonnogo-metalla.html">Покрытия для рулонного металла</a></li>
+                            <li><a href="napravlenya/materialy-dlya-remonta-zdaniy-iz-metallokonstruktsiy.html">Ремонт металлоконструкций</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="header-contact">
+                <a href="tel:8-800-222-39-34" class="contact-link">
+                    <i class="fa fa-phone"></i>
+                    <span>8-800-222-39-34</span>
+                </a>
+                <a href="mailto:techdir@dyo-lkm.ru" class="contact-link">
+                    <i class="fa fa-envelope"></i>
+                    <span>techdir@dyo-lkm.ru</span>
+                </a>
+            </div>
+            <div class="nav-overlay"></div>
+        </div>
     </header>
 
 
@@ -190,11 +185,9 @@
                     <ul class="mobile-submenu">
                         <li><a href="napravlenya/promyshlennye-pokrytiya.html">Промышленные покрытия</a></li>
                         <li><a href="napravlenya/antikorrozionnye-pokrytiya.html">Антикоррозионные покрытия</a></li>
-                        <li><a href="napravlenya/poroshkovye-pokrytiya.html">Порошковые покрытия</a></li>
                         <li><a href="napravlenya/morskie-pokrytiya.html">Морские покрытия</a></li>
                         <li><a href="napravlenya/lakokrasochnye-pokrytiya-dlya-rulonnogo-metalla.html">Лакокрасочные покрытия для рулонного металла</a></li>
                         <li><a href="napravlenya/materialy-dlya-remonta-zdaniy-iz-metallokonstruktsiy.html">Материалы для ремонта зданий из металлоконструкций</a></li>
-                        <li><a href="napravlenya/avtoremontnye-lakokrasochnye-materialy.html">Авторемонтные лакокрасочные материалы</a></li>
                     </ul>
                 </li>
                 <li class="mobile-menu-parent">
@@ -287,6 +280,7 @@
         }
     })();
     </script>
+    <script src="../Content/assets/js/landing.js"></script>
     <script src="../Content/assets/js/mobile-nav.js"></script>
     <script src="o-kompan/o-kompani.js"></script>
 

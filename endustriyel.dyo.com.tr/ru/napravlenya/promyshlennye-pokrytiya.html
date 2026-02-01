@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
   <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -12,6 +12,7 @@
       content="Промышленные покрытия DYO и их продукция."
     />
    <link rel="stylesheet" href="napravlenya.css?v=2">
+   <link rel="stylesheet" href="../../Content/assets/css/landing.css?ver=3">
    <style>
    /* Critical mobile navigation styles - inline for reliability */
    #mobile-bottom-nav.mobile-bottom-nav {
@@ -106,63 +107,55 @@
    </style>
   </head>
   <body>
-    <header id="header">
-      <div class="container">
-        <a href="../../index.html" id="logo">
-          <img src="../../Content/assets/img/logo.png" alt="DYO Logo" />
-        </a>
-        <ul id="main-menu">
-          <li>
-            <a href="../../index.html"
-              >Главная страница</a
-            >
-          </li>
-          <li class="has-sub-menu">
-            <a href="../o-kompan.html">О КОМПАНИИ</a>
-            <ul class="sub-menu">
-              <li>
-                <a href="../o-kompan/o-nas.html">О нас</a>
-              </li>
-              <li>
-                <a href="../o-kompan/realnye-istorii.html"
-                  >Реальные истории</a
-                >
-              </li>
-              <li>
-                <a href="../o-kompan/tekhnicheskaya-dokumentatsiya.html">Техническая документация</a>
-              </li>
-            </ul>
-          </li>
-          <li class="has-sub-menu">
-            <a href="../../index.html">НАПРАВЛЕНИЯ</a>
-            <ul class="sub-menu">
-              <li>
-                <a href="promyshlennye-pokrytiya.html">Промышленные покрытия</a>
-              </li>
-              <li>
-                <a href="antikorrozionnye-pokrytiya.html">Антикоррозионные покрытия</a>
-              </li>
-              <li>
-                <a href="poroshkovye-pokrytiya.html">Порошковые покрытия</a>
-              </li>
-              <li>
-                <a href="morskie-pokrytiya.html">Морские покрытия</a>
-              </li>
-              <li>
-                <a href="lakokrasochnye-pokrytiya-dlya-rulonnogo-metalla.html">Лакокрасочные покрытия для рулонного металла</a>
-              </li>
-              <li>
-                <a href="materialy-dlya-remonta-zdaniy-iz-metallokonstruktsiy.html">Материалы для ремонта зданий из металлоконструкций</a>
-              </li>
-              <li>
-                <a href="avtoremontnye-lakokrasochnye-materialy.html"
-                  >Авторемонтные лакокрасочные материалы</a
-                >
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
+    <header class="landing-header">
+        <div class="container header-inner">
+            <a class="brand" href="../../index.html" aria-label="DYO Industrial">
+                <img src="../../Content/assets/img/logo.png" alt="Dyo logo" />
+                <div class="brand-copy">
+                    <span class="brand-name">DYO Industrial</span>
+                    <span class="brand-tagline">Промышленные покрытия с 1927 года</span>
+                </div>
+            </a>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Открыть меню" />
+            <label for="nav-toggle" class="mobile-nav-toggle" aria-label="Меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <nav class="main-nav" aria-label="Основная навигация">
+                <ul id="main-menu">
+                    <li class="has-sub-menu company-menu">
+                        <a href="../o-kompan.html">О компании</a>
+                        <ul class="sub-menu">
+                            <li><a href="../o-kompan/o-nas.html">О нас</a></li>
+                            <li><a href="../o-kompan/realnye-istorii.html">Реальные истории</a></li>
+                            <li><a href="../o-kompan/tekhnicheskaya-dokumentatsiya.html">Техническая документация</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-sub-menu directions-menu">
+                        <a href="../../index.html#solutions">Направления</a>
+                        <ul class="sub-menu">
+                            <li><a href="promyshlennye-pokrytiya.html">Промышленные покрытия</a></li>
+                            <li><a href="antikorrozionnye-pokrytiya.html">Антикоррозионные покрытия</a></li>
+                            <li><a href="morskie-pokrytiya.html">Морские покрытия</a></li>
+                            <li><a href="lakokrasochnye-pokrytiya-dlya-rulonnogo-metalla.html">Покрытия для рулонного металла</a></li>
+                            <li><a href="materialy-dlya-remonta-zdaniy-iz-metallokonstruktsiy.html">Ремонт металлоконструкций</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <div class="header-contact">
+                <a href="tel:8-800-222-39-34" class="contact-link">
+                    <i class="fa fa-phone"></i>
+                    <span>8-800-222-39-34</span>
+                </a>
+                <a href="mailto:techdir@dyo-lkm.ru" class="contact-link">
+                    <i class="fa fa-envelope"></i>
+                    <span>techdir@dyo-lkm.ru</span>
+                </a>
+            </div>
+            <div class="nav-overlay"></div>
+        </div>
     </header>
 
     <div id="content">
@@ -259,16 +252,11 @@
 
           <h3 class="medium-space-bottom">Область применения</h3>
           <div class="row">
-            <div class="col-6 col-sm-4 col-lg-3">
+            <div class="col-6 col-sm-4 col-lg-4">
               <article class="article-small article-filter icon-brush">
                 <a href="produkty/produkty.html">
                   <div class="image-holder">
-                    <img
-                      src="../../Content/assets/img/special_machinery.jpeg"
-                      class=""
-                      alt="Araçüstü Ekipman ve İş Makineleri"
-                      title="Araçüstü Ekipman ve İş Makineleri"
-                    />
+                    <img src="../../Content/assets/img/special_machinery.jpeg" alt="Спецмашины и спецтехника" title="Спецмашины и спецтехника" />
                   </div>
                   <div class="article-content">
                     <h3>Спецмашины и спецтехника</h3>
@@ -276,118 +264,11 @@
                 </a>
               </article>
             </div>
-            <div class="col-6 col-sm-4 col-lg-3">
+            <div class="col-6 col-sm-4 col-lg-4">
               <article class="article-small article-filter icon-brush">
                 <a href="produkty/produkty.html">
                   <div class="image-holder">
-                    <img
-                      src="../../Content/assets/img/pipes_thumb.jpeg"
-                      class=""
-                      alt="Boru ve Profil Sektörü"
-                      title="Boru ve Profil Sektörü"
-                    />
-                  </div>
-                  <div class="article-content">
-                    <h3>Трубы и профили</h3>
-                  </div>
-                </a>
-              </article>
-            </div>
-            <div class="col-6 col-sm-4 col-lg-3">
-              <article class="article-small article-filter icon-brush">
-                <a href="produkty/produkty.html">
-                  <div class="image-holder">
-                    <img
-                      src="../../Content/assets/img/electric_thumb.jpeg"
-                      class=""
-                      alt="DYO"
-                      title="DYO"
-                    />
-                  </div>
-                  <div class="article-content">
-                    <h3>Электротехника</h3>
-                  </div>
-                </a>
-              </article>
-            </div>
-            <div class="col-6 col-sm-4 col-lg-3">
-              <article class="article-small article-filter icon-brush">
-                <a href="produkty/produkty.html">
-                  <div class="image-holder">
-                    <img
-                      src="../../Content/assets/img/household_thumb.jpeg"
-                      class=""
-                      alt="Ev Aletleri"
-                      title="Ev Aletleri"
-                    />
-                  </div>
-                  <div class="article-content">
-                    <h3>Бытовые приборы</h3>
-                  </div>
-                </a>
-              </article>
-            </div>
-            <div class="col-6 col-sm-4 col-lg-3">
-              <article class="article-small article-filter icon-brush">
-                <a href="produkty/produkty.html">
-                  <div class="image-holder">
-                    <img
-                      src="../../Content/assets/img/gas_thumb.jpeg"
-                      class=""
-                      alt="DYO"
-                      title="DYO"
-                    />
-                  </div>
-                  <div class="article-content">
-                    <h3>Газовые баллоны LPG</h3>
-                  </div>
-                </a>
-              </article>
-            </div>
-            <div class="col-6 col-sm-4 col-lg-3">
-              <article class="article-small article-filter icon-brush">
-                <a href="produkty/produkty.html">
-                  <div class="image-holder">
-                    <img
-                      src="../../Content/assets/img/auxiliary-thumb.jpeg"
-                      class=""
-                      alt="DYO"
-                      title="DYO"
-                    />
-                  </div>
-                  <div class="article-content">
-                    <h3>Машины</h3>
-                  </div>
-                </a>
-              </article>
-            </div>
-            <div class="col-6 col-sm-4 col-lg-3">
-              <article class="article-small article-filter icon-brush">
-                <a href="produkty/produkty.html">
-                  <div class="image-holder">
-                    <img
-                      src="../../Content/assets/img/auto_thumb.jpeg"
-                      class=""
-                      alt="Oto Yan Sanayi"
-                      title="Oto Yan Sanayi"
-                    />
-                  </div>
-                  <div class="article-content">
-                    <h3>Производство автозапчастей</h3>
-                  </div>
-                </a>
-              </article>
-            </div>
-            <div class="col-6 col-sm-4 col-lg-3">
-              <article class="article-small article-filter icon-brush">
-                <a href="produkty/produkty.html">
-                  <div class="image-holder">
-                    <img
-                      src="../../Content/assets/img/commercial_thumb.jpeg"
-                      class=""
-                      alt="Ticari Araçlar"
-                      title="Ticari Araçlar"
-                    />
+                    <img src="../../Content/assets/img/commercial_thumb.jpeg" alt="Коммерческий транспорт" title="Коммерческий транспорт" />
                   </div>
                   <div class="article-content">
                     <h3>Коммерческий транспорт</h3>
@@ -395,16 +276,11 @@
                 </a>
               </article>
             </div>
-            <div class="col-6 col-sm-4 col-lg-3">
+            <div class="col-6 col-sm-4 col-lg-4">
               <article class="article-small article-filter icon-brush">
                 <a href="produkty/produkty.html">
                   <div class="image-holder">
-                    <img
-                      src="../../Content/assets/img/tractor_thumb.jpeg"
-                      class=""
-                      alt="Traktör ve Tarım Makineleri"
-                      title="Traktör ve Tarım Makineleri"
-                    />
+                    <img src="../../Content/assets/img/tractor_thumb.jpeg" alt="Тракторы и сельскохозяйственная техника" title="Тракторы и сельскохозяйственная техника" />
                   </div>
                   <div class="article-content">
                     <h3>Тракторы и сельскохозяйственная техника</h3>
@@ -412,62 +288,38 @@
                 </a>
               </article>
             </div>
-            <div class="col-6 col-sm-4 col-lg-3">
+            <div class="col-6 col-sm-4 col-lg-4">
               <article class="article-small article-filter icon-brush">
                 <a href="produkty/produkty.html">
                   <div class="image-holder">
-                    <img
-                      src="../../Content/assets/img/road_thumb.jpeg"
-                      class=""
-                      alt="Yol Çizgi Boyaları"
-                      title="Yol Çizgi Boyaları"
-                    />
+                    <img src="../../Content/assets/img/pipes_thumb.jpeg" alt="Трубы и профили" title="Трубы и профили" />
                   </div>
                   <div class="article-content">
-                    <h3>Краски для дорожной разметки</h3>
+                    <h3>Трубы и профили</h3>
                   </div>
                 </a>
               </article>
             </div>
-            <div class="col-6 col-sm-4 col-lg-3">
+            <div class="col-6 col-sm-4 col-lg-4">
               <article class="article-small article-filter icon-brush">
                 <a href="produkty/produkty.html">
                   <div class="image-holder">
-                    <img
-                      src="../../Content/assets/img/other_thumb.jpeg"
-                      class=""
-                      alt="DYO"
-                      title="DYO"
-                    />
+                    <img src="../../Content/assets/img/metal-pipes.jpg" alt="Резервуары и емкости" title="Резервуары и емкости" />
                   </div>
                   <div class="article-content">
-                    <h3>Прочие отрасли</h3>
+                    <h3>Резервуары и емкости</h3>
                   </div>
                 </a>
               </article>
             </div>
-          </div>
-
-          <div class="row">
-            <div class="col-12">
-              <article class="article-horizontal icon-pen">
+            <div class="col-6 col-sm-4 col-lg-4">
+              <article class="article-small article-filter icon-brush">
                 <a href="produkty/produkty.html">
                   <div class="image-holder">
-                    <img
-                      src="../../Content/assets/img/colormix_thumb.jpeg"
-                      class=""
-                      alt="dyomix"
-                      title="dyomix"
-                    />
+                    <img src="../../Content/assets/img/electric_thumb.jpeg" alt="Электротехника" title="Электротехника" />
                   </div>
                   <div class="article-content">
-                    <h3>Колеровочные системы промышленных красок DYO</h3>
-                    <p>
-                      Благодаря нашим колеровочным системам, обеспечивающим
-                      богатое разнообразие цветов, мы являемся вашим партнером
-                      по решениям во всех&#160;проектах в сегменте промышленных
-                      покрытий.
-                    </p>
+                    <h3>Электротехника</h3>
                   </div>
                 </a>
               </article>
@@ -556,11 +408,9 @@
                     <ul class="mobile-submenu">
                         <li><a href="promyshlennye-pokrytiya.html">Промышленные покрытия</a></li>
                         <li><a href="antikorrozionnye-pokrytiya.html">Антикоррозионные покрытия</a></li>
-                        <li><a href="poroshkovye-pokrytiya.html">Порошковые покрытия</a></li>
                         <li><a href="morskie-pokrytiya.html">Морские покрытия</a></li>
                         <li><a href="lakokrasochnye-pokrytiya-dlya-rulonnogo-metalla.html">Лакокрасочные покрытия для рулонного металла</a></li>
                         <li><a href="materialy-dlya-remonta-zdaniy-iz-metallokonstruktsiy.html">Материалы для ремонта зданий из металлоконструкций</a></li>
-                        <li><a href="avtoremontnye-lakokrasochnye-materialy.html">Авторемонтные лакокрасочные материалы</a></li>
                     </ul>
                 </li>
                 <li class="mobile-menu-parent">
@@ -647,6 +497,7 @@
         setTimeout(initMobileMenu, 500);
     })();
     </script>
+    <script src="../../Content/assets/js/landing.js"></script>
     <script src="../../Content/assets/js/mobile-nav.js"></script>
     <script src="napravlenya.js?v=2"></script>
   </body>

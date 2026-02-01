@@ -50,6 +50,44 @@ body.landing-page {
     padding: 18px 0;
 }
 
+/* Reduce spacing between header and content on O kompanii subpages */
+body.o-kompan-page #content {
+    padding-top: 48px !important;
+}
+
+body.o-kompan-page .section {
+    padding-top: 24px !important;
+}
+
+@media (max-width: 991px) {
+    body.o-kompan-page #content {
+        padding-top: 32px !important;
+    }
+
+    body.o-kompan-page .section {
+        padding-top: 20px !important;
+    }
+}
+
+/* Reduce spacing between header and content on Produkty page */
+body.produkty-page #content {
+    padding-top: 0 !important;
+}
+
+body.produkty-page .section {
+    padding-top: 24px !important;
+}
+
+@media (max-width: 991px) {
+    body.produkty-page #content {
+        padding-top: 32px !important;
+    }
+
+    body.produkty-page .section {
+        padding-top: 20px !important;
+    }
+}
+
 .brand {
     display: flex;
     align-items: center;
@@ -82,8 +120,6 @@ body.landing-page {
     display: flex;
     align-items: center;
     gap: 20px;
-    margin-left: auto;
-    margin-right: 20px;
 }
 
 .header-contact .contact-link {
@@ -111,22 +147,29 @@ body.landing-page {
     color: var(--dyo-red);
 }
 
-nav.main-nav ul {
+/* Scoped to .landing-header so we override stylecd0e #main-menu on inner pages */
+.landing-header nav.main-nav ul,
+.landing-header nav.main-nav #main-menu {
     list-style: none;
     display: flex;
     gap: 26px;
     font-weight: 700;
     color: var(--text-muted);
     font-size: 16px;
+    margin: 0;
+    padding: 0;
+    float: none;
+    justify-content: flex-start;
 }
 
-nav.main-nav a {
+.landing-header nav.main-nav a {
     position: relative;
     padding: 6px 0;
     transition: color 0.2s ease;
+    color: var(--text-muted);
 }
 
-nav.main-nav a::after {
+.landing-header nav.main-nav a::after {
     content: "";
     position: absolute;
     left: 0;
@@ -139,30 +182,46 @@ nav.main-nav a::after {
     transition: transform 0.25s ease;
 }
 
-nav.main-nav a:hover {
+.landing-header nav.main-nav a:hover {
     color: var(--text-primary);
 }
 
-nav.main-nav a:hover::after {
+.landing-header nav.main-nav a:hover::after {
     transform: scaleX(1);
+}
+
+/* Dropdown positioning - parent needs position relative */
+.landing-header nav.main-nav .has-sub-menu {
+    position: relative;
 }
 
 /* Keep dropdowns fully visible and usable */
 .landing-header nav.main-nav .sub-menu {
+    position: absolute;
+    top: 100%;
     left: auto;
     right: 0;
     transform: none;
     min-width: 240px;
-    max-width: calc(100vw - 32px);
+    max-width: min(380px, calc(100vw - 32px));
     max-height: 70vh;
     overflow-y: auto;
-    white-space: nowrap;
+    overflow-x: hidden;
+    white-space: normal;
     z-index: 20;
     background: #ffffff;
     border: 1px solid var(--card-border);
     border-radius: 12px;
     padding: 10px 0;
     box-shadow: 0 14px 30px rgba(13, 18, 34, 0.12);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.landing-header nav.main-nav .has-sub-menu:hover .sub-menu {
+    opacity: 1;
+    visibility: visible;
 }
 
 .landing-header nav.main-nav .sub-menu li {
@@ -182,22 +241,24 @@ nav.main-nav a:hover::after {
     color: var(--text-primary);
 }
 
-/* Two-column layout for the long directions list */
-#main-menu .directions-menu .sub-menu {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 4px 0;
-    min-width: 360px;
+/* Vertical single-column layout for submenus - items stacked one beneath the other */
+.landing-header #main-menu .directions-menu .sub-menu,
+.landing-header #main-menu .company-menu .sub-menu {
+    display: block;
+    list-style: none;
+    min-width: 300px;
+    max-width: calc(100vw - 32px);
     white-space: normal;
 }
 
-/* Match company dropdown styling to directions */
-#main-menu .company-menu .sub-menu {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 4px 0;
-    min-width: 260px;
-    white-space: normal;
+.landing-header .sub-menu li {
+    display: block;
+}
+
+.landing-header .sub-menu a {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
 }
 
 /* Show submenu on focus for keyboard users */
@@ -426,39 +487,40 @@ nav.main-nav a:hover::after {
 
 .solution-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-    gap: 18px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 }
 
 .solution-card {
     background: var(--card-bg);
     border: 1px solid var(--card-border);
     border-radius: 14px;
-    padding: 18px;
+    overflow: hidden;
     display: flex;
-    gap: 12px;
-    align-items: center;
+    flex-direction: column;
     transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
     box-shadow: 0 10px 24px rgba(13, 18, 34, 0.06);
-    min-height: 80px;
+    text-decoration: none;
+    min-height: 180px;
 }
 
-.solution-card img {
-    width: 52px;
-    height: 52px;
-    flex-shrink: 0;
-    object-fit: contain;
-    display: block;
+.solution-card-img {
+    width: 100%;
+    height: 120px;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--glass);
 }
 
 .solution-card .title {
     font-weight: 700;
     color: var(--text-primary);
     line-height: 1.35;
-    flex: 1;
+    padding: 14px 18px 18px;
     word-wrap: break-word;
     overflow-wrap: break-word;
     hyphens: auto;
+    flex: 1;
 }
 
 .solution-card:hover {
@@ -614,10 +676,6 @@ nav.main-nav a:hover::after {
 @media (max-width: 640px) {
     .hero-copy h1 {
         font-size: 32px;
-    }
-
-    .solution-card {
-        flex-direction: row;
     }
 
     .header-actions {
@@ -779,7 +837,7 @@ nav.main-nav a:hover::after {
     }
 
     .solution-grid {
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        grid-template-columns: repeat(3, 1fr);
         gap: 14px;
     }
 
@@ -1287,29 +1345,20 @@ body.landing-page {
     }
     
     .solution-grid {
-        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        grid-template-columns: repeat(3, 1fr);
         gap: 12px;
     }
     
     .solution-card {
-        flex-direction: column;
-        text-align: center;
-        padding: 16px;
-        min-height: auto;
+        min-height: 160px;
     }
     
-    .solution-card img {
-        width: 48px;
-        height: 48px;
-        margin: 0 auto 8px;
-        flex-shrink: 0;
-        object-fit: contain;
+    .solution-card-img {
+        height: 100px;
     }
     
     .solution-card .title {
-        flex: 1;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
+        padding: 12px 16px 16px;
     }
     
     .feature-grid {
@@ -1522,7 +1571,7 @@ body.landing-page {
 /* Tablet specific optimizations */
 @media (min-width: 481px) and (max-width: 1024px) {
     .solution-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
     
     .feature-grid {
