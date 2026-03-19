@@ -224,7 +224,7 @@
             function closeMenu() {
                 overlay.classList.remove('active');
                 document.body.style.overflow = '';
-                parents.forEach(function(p) { 
+                Array.prototype.forEach.call(parents, function(p) { 
                     p.classList.remove('active'); 
                 });
             }
@@ -260,7 +260,7 @@
             });
             
             // Toggle submenus
-            parents.forEach(function(parent) {
+            Array.prototype.forEach.call(parents, function(parent) {
                 var link = parent.querySelector('.mobile-menu-link');
                 if (link) {
                     link.addEventListener('click', function(e) {

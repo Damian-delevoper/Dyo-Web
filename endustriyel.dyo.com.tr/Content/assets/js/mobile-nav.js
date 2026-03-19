@@ -30,7 +30,7 @@
                 mobileMenuOverlay.classList.remove('active');
                 document.body.style.overflow = '';
                 // Close all submenus
-                mobileMenuParents.forEach(function(parent) {
+                Array.prototype.forEach.call(mobileMenuParents, function(parent) {
                     parent.classList.remove('active');
                 });
             }
@@ -70,15 +70,17 @@
             }
         });
 
-        // Toggle submenus in mobile menu
-        mobileMenuParents.forEach(function(parent) {
-            const link = parent.querySelector('.mobile-menu-link');
-            if (link) {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    parent.classList.toggle('active');
-                });
-            }
+        // Toggle submenus in mobile menu (delegated + touch-safe)
+        document.addEventListener('click', function(e) {
+            const link = e.target.closest('.mobile-menu-link');
+            if (!link || !mobileMenuOverlay || !mobileMenuOverlay.contains(link)) return;
+
+            e.preventDefault();
+            e.stopPropagation();
+
+            const parent = link.closest('.mobile-menu-parent');
+            if (!parent) return;
+            parent.classList.toggle('active');
         });
 
         // Set active state for bottom navigation items
@@ -102,7 +104,7 @@
             const currentParts = normalizePath(currentPath).split('/').filter(function(p) { return p; });
             const isHomePage = currentPage === 'index.html' || currentPage === '' || currentPath.endsWith('/') || currentParts.length === 0;
             
-            navItems.forEach(function(item) {
+            Array.prototype.forEach.call(navItems, function(item) {
                 item.classList.remove('active');
                 const href = item.getAttribute('href');
                 
@@ -159,7 +161,7 @@
 
         // Smooth scroll for anchor links
         const anchorLinks = document.querySelectorAll('.mobile-bottom-nav a[href^="#"]');
-        anchorLinks.forEach(function(link) {
+        Array.prototype.forEach.call(anchorLinks, function(link) {
             link.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
                 if (href !== '#' && href.startsWith('#')) {

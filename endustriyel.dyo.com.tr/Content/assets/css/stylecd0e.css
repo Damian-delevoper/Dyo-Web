@@ -1,4 +1,4 @@
-﻿/*#region reset*/
+/*#region reset*/
 
 html,
 body,
@@ -541,29 +541,32 @@ main {
    ======================================== */
 
 @media (max-width: 1366px) {
-    /* Base reset for mobile/tablet - Fit to viewport */
+    /* Base reset for mobile/tablet — document must scroll (no viewport trap) */
     html {
         background: #ffffff !important;
         background-image: none !important;
-        height: 100% !important;
-        height: 100vh !important;
-        height: 100dvh !important; /* Dynamic viewport height for mobile browsers */
-        overflow: hidden !important;
+        height: auto !important;
+        min-height: 100vh !important;
+        min-height: 100dvh !important;
+        max-height: none !important;
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
         margin: 0 !important;
         padding: 0 !important;
-        position: fixed !important;
+        position: static !important;
         width: 100% !important;
-        top: 0 !important;
-        left: 0 !important;
+        -webkit-overflow-scrolling: touch !important;
     }
     
     body {
         background: #ffffff !important;
         background-image: none !important;
-        height: 100% !important;
-        height: 100vh !important;
-        height: 100dvh !important; /* Dynamic viewport height for mobile browsers */
-        overflow: hidden !important;
+        min-height: 100vh !important;
+        min-height: 100dvh !important;
+        height: auto !important;
+        max-height: none !important;
+        overflow-x: hidden !important;
+        overflow-y: visible !important;
         margin: 0 !important;
         padding: 0 !important;
         display: flex !important;
@@ -572,6 +575,7 @@ main {
         align-items: stretch !important;
         position: relative !important;
         width: 100% !important;
+        -webkit-overflow-scrolling: touch !important;
     }
     
     /* Ensure footer is always at bottom and visible */
@@ -601,7 +605,7 @@ main {
         display: block !important;
     }
     
-    /* DEPARTMENTS - Flex grow to fill available space, but respect footer */
+    /* DEPARTMENTS — grow with content so the page can scroll on small screens */
     #departments {
         background: #2a2a2a !important;
         background-image: url("../img/gray_bg.jpg") !important;
@@ -610,16 +614,14 @@ main {
         background-repeat: no-repeat !important;
         margin: 0 !important;
         padding: 0 !important;
-        flex: 1 1 0% !important;
-        flex-grow: 1 !important;
-        flex-shrink: 1 !important;
-        flex-basis: 0% !important;
+        flex: 1 1 auto !important;
         display: flex !important;
         flex-direction: column !important;
-        overflow: hidden !important;
-        min-height: 0 !important;
-        max-height: 100% !important;
-        height: 0 !important; /* Use flexbox height calculation */
+        overflow: visible !important;
+        min-height: 50vh !important;
+        min-height: min(70vh, 640px) !important;
+        max-height: none !important;
+        height: auto !important;
         position: relative !important;
     }
     
@@ -628,10 +630,10 @@ main {
         margin: 0 !important;
         padding: 0 !important;
         position: relative !important;
-        height: 100% !important;
+        height: auto !important;
         min-height: 0 !important;
-        max-height: 100% !important;
-        overflow: hidden !important;
+        max-height: none !important;
+        overflow: visible !important;
         display: flex !important;
         flex-direction: column !important;
     }
@@ -654,12 +656,12 @@ main {
         margin: 0 !important;
         padding: 0 !important;
         position: relative !important;
-        height: 100% !important;
+        height: auto !important;
         width: 100% !important;
         transform: translateY(0) !important;
         opacity: 1 !important;
         visibility: visible !important;
-        overflow: hidden !important;
+        overflow: visible !important;
         flex: 1 1 auto !important;
     }
     
@@ -669,10 +671,10 @@ main {
         margin: 0 !important;
         padding: 0 !important;
         width: 100% !important;
-        flex: 1 1 0% !important;
+        flex: 0 0 auto !important;
         position: relative !important;
         display: flex !important;
-        min-height: 0 !important;
+        min-height: 44px !important;
     }
     
     #departments .department.industrial ul li:last-child {
@@ -691,8 +693,8 @@ main {
         transition: background-color 0.2s !important;
         width: 100% !important;
         box-sizing: border-box !important;
-        height: 100% !important;
-        min-height: 0 !important;
+        height: auto !important;
+        min-height: 44px !important;
     }
     
     #departments .department.industrial ul li a:active {

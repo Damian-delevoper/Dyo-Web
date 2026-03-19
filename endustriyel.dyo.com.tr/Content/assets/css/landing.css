@@ -224,6 +224,12 @@ body.produkty-page .section {
     visibility: visible;
 }
 
+/* JS fallback for touch/click devices */
+.landing-header nav.main-nav .has-sub-menu.open .sub-menu {
+    opacity: 1;
+    visibility: visible;
+}
+
 .landing-header nav.main-nav .sub-menu li {
     padding: 0;
 }
@@ -1001,6 +1007,28 @@ body.landing-page {
     .section {
         overflow: visible !important;
         position: relative !important;
+    }
+}
+
+/* Inner pages use the same header but often omit html/body landing classes — keep document scroll */
+@media (max-width: 1366px) {
+    html:has(.landing-header),
+    body:has(.landing-header) {
+        height: auto !important;
+        min-height: 100vh !important;
+        min-height: 100dvh !important;
+        max-height: none !important;
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+        position: static !important;
+        top: auto !important;
+        left: auto !important;
+        width: 100% !important;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    body:has(.landing-header) {
+        overscroll-behavior-y: auto !important;
     }
 }
 
