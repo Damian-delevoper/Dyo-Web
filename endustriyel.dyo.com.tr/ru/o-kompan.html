@@ -14,6 +14,37 @@
       content="О компании ."
     />
     <style>
+      .key-facts {
+        margin: 20px 0 28px;
+        padding: 22px 24px;
+        border: 1px solid #e3e6ee;
+        border-radius: 10px;
+        background: #ffffff;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+      }
+      .key-facts h2 {
+        margin: 0 0 14px;
+        font-size: 1.3rem;
+        color: #1f2430;
+      }
+      .key-facts-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px 18px;
+      }
+      .key-facts-item {
+        margin: 0;
+        padding: 10px 12px;
+        border-left: 3px solid #c3002f;
+        background: #f8f9fc;
+        line-height: 1.5;
+        font-size: 0.98rem;
+      }
+      @media (max-width: 767px) {
+        .key-facts-grid {
+          grid-template-columns: 1fr;
+        }
+      }
       .team-highlight {
         margin: 40px 0;
         padding: 32px;
@@ -95,7 +126,17 @@
     </ul>
 
         <h1 class="medium-space-bottom">О КОМПАНИИ</h1>
-        <h1 class="medium-space-bottom">О нас</h1>
+        <section class="key-facts" aria-label="Ключевые факты">
+          <h2>Ключевые факты</h2>
+          <div class="key-facts-grid">
+            <p class="key-facts-item"><strong>С 1954 года</strong> ведем научные и лабораторные исследования покрытий.</p>
+            <p class="key-facts-item"><strong>Специализация:</strong> защита металла от агрессивной среды и коррозии.</p>
+            <p class="key-facts-item"><strong>Подход:</strong> подбор системы ЛКМ под конкретный цикл, оборудование и условия производства.</p>
+            <p class="key-facts-item"><strong>Проверка в реальных условиях:</strong> адгезия, механическая стойкость, солевой раствор и туман.</p>
+            <p class="key-facts-item"><strong>Документированный результат:</strong> оформляем акт испытаний перед внедрением.</p>
+            <p class="key-facts-item"><strong>Экономический эффект:</strong> решения DYO могут снижать расход и себестоимость от 20%.</p>
+          </div>
+        </section>
 
         <div class="team-highlight">
         <h2>Мы команда технологов.</h2>

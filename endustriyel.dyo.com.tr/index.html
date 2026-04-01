@@ -34,6 +34,7 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700&display=swap&subset=latin-ext"
           rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="Content/assets/css/stylecd0e.css?ver=90" />
     <link rel="stylesheet" href="Content/assets/css/landing.css?ver=2" />
 
@@ -92,85 +93,69 @@
     </header>
 
     <main>
-        <section class="hero" id="hero">
+        <section class="hero hero-pro" id="solutions">
             <div class="container hero-grid">
                 <div class="hero-copy">
                     <span class="eyebrow">Индустриальные покрытия DYO</span>
-                    <h1>Инженерные системы защиты металла под ваши условия эксплуатации</h1>
+                    <h1>Инженерные системы промышленной защиты металла</h1>
                     <p class="lede">
-                        Команда технологов DYO разрабатывает и внедряет покрытия на базе лабораторных испытаний: антикоррозионные грунты,
-                        промышленная линейка, решения для морского сегмента и рулонного металла.
-                        Подбираем систему под оборудование, климат и требования вашего производства.
+                        Подбираем и внедряем покрытия под ваш цикл, оборудование и условия эксплуатации:
+                        от лабораторных испытаний до запуска на площадке.
                     </p>
                     <div class="hero-actions">
-                        <a class="btn primary" href="ru/napravlenya/promyshlennye-pokrytiya.html">Каталог решений</a>
+                        <a class="btn primary" href="ru/napravlenya/produkty/produkty.html">Подобрать систему покрытия</a>
+                        <a class="btn ghost" href="ru/o-kompan.html">О компании</a>
                     </div>
                     <div class="hero-highlights">
-                        <div class="stat">
-                            <strong>С 1954</strong>
-                            собственные лабораторные испытания
-                        </div>
-                        <div class="stat">
-                            <strong>360°</strong>
-                            поддержка от подбора до внедрения
-                        </div>
-                        <div class="stat">
-                            <strong>ISO/IMO</strong>
-                            подтверждение отраслевых стандартов
-                        </div>
+                        <div class="stat"><strong>С 1954</strong>лабораторные испытания</div>
+                        <div class="stat"><strong>ISO/IMO</strong>подтвержденные стандарты</div>
+                        <div class="stat"><strong>360°</strong>техническое сопровождение проекта</div>
                     </div>
                 </div>
-                <div class="hero-card">
-                    <h3>Почему выбирают DYO</h3>
-                    <ul class="checklist">
-                        <li>Реальные испытания на адгезию, механическую стойкость и солевой туман</li>
-                        <li>Сравнительные выкраски для расчета расхода и экономии материалов</li>
-                        <li>Подбор системы под цикл, оборудование и требования заказчика</li>
-                        <li>Технологические карты нанесения и запуск на площадке</li>
-                        <li>Поддержка экспертов DYO и локальная логистика</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="solutions">
-            <div class="container">
-                <div class="section-head">
-                    <span class="eyebrow">Линейки</span>
-                    <h2>Ключевые индустриальные направления</h2>
-                    <p>Выберите сегмент, чтобы перейти к конкретным продуктам и рекомендациям по системам нанесения.</p>
-                </div>
-                <div class="solution-grid">
-                    <a class="solution-card" href="ru/napravlenya/promyshlennye-pokrytiya.html">
-                        <div class="solution-card-img" style="background-image: url(Content/assets/img/industrial_section.jpeg);"></div>
-                        <div class="title">Промышленные покрытия</div>
-                    </a>
-                    <a class="solution-card" href="ru/napravlenya/antikorrozionnye-pokrytiya.html">
-                        <div class="solution-card-img" style="background-image: url(Content/assets/img/corrosion-protection-slider.jpeg);"></div>
-                        <div class="title">Антикоррозионные системы</div>
-                    </a>
-                    <a class="solution-card" href="ru/napravlenya/morskie-pokrytiya.html">
-                        <div class="solution-card-img" style="background-image: url(Content/assets/img/shipbuilding-slider.jpeg);"></div>
-                        <div class="title">Морские покрытия</div>
-                    </a>
-                    <a class="solution-card" href="ru/napravlenya/lakokrasochnye-pokrytiya-dlya-rulonnogo-metalla.html">
-                        <div class="solution-card-img" style="background-image: url(Content/assets/img/coil-slider.jpeg);"></div>
-                        <div class="title">Покрытия для рулонного металла</div>
-                    </a>
-                    <a class="solution-card" href="ru/napravlenya/materialy-dlya-remonta-zdaniy-iz-metallokonstruktsiy.html">
-                        <div class="solution-card-img" style="background-image: url(Content/assets/img/repair-materials-slider.jpeg);"></div>
-                        <div class="title">Ремонт металлоконструкций</div>
-                    </a>
+                <div class="hero-visual" aria-label="Направления">
+                    <div class="solutions-slider swiper" id="solutions-slider">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <a class="solution-card" href="ru/napravlenya/promyshlennye-pokrytiya.html">
+                                    <div class="solution-card-img" style="background-image: url(Content/assets/img/industrial_section.jpeg);"></div>
+                                    <div class="title">Промышленные покрытия</div>
+                                </a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a class="solution-card" href="ru/napravlenya/antikorrozionnye-pokrytiya.html">
+                                    <div class="solution-card-img" style="background-image: url(Content/assets/img/corrosion-protection-slider.jpeg);"></div>
+                                    <div class="title">Антикоррозионные системы</div>
+                                </a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a class="solution-card" href="ru/napravlenya/morskie-pokrytiya.html">
+                                    <div class="solution-card-img" style="background-image: url(Content/assets/img/shipbuilding-slider.jpeg);"></div>
+                                    <div class="title">Морские покрытия</div>
+                                </a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a class="solution-card" href="ru/napravlenya/lakokrasochnye-pokrytiya-dlya-rulonnogo-metalla.html">
+                                    <div class="solution-card-img" style="background-image: url(Content/assets/img/coil-slider.jpeg);"></div>
+                                    <div class="title">Покрытия для рулонного металла</div>
+                                </a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a class="solution-card" href="ru/napravlenya/materialy-dlya-remonta-zdaniy-iz-metallokonstruktsiy.html">
+                                    <div class="solution-card-img" style="background-image: url(Content/assets/img/repair-materials-slider.jpeg);"></div>
+                                    <div class="title">Ремонт металлоконструкций</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="swiper-button-prev solutions-prev"></div>
+                        <div class="swiper-button-next solutions-next"></div>
+                        <div class="swiper-pagination solutions-pagination"></div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section class="section" id="advantages">
             <div class="container">
-                <div class="section-head">
-                    <span class="eyebrow">Преимущества</span>
-                    <h2>Инженерный подход, который снижает риски и расходы</h2>
-                </div>
                 <div class="feature-grid">
                     <div class="feature-card">
                         <h3>Доказанная долговечность</h3>
@@ -189,13 +174,15 @@
                         <p>Инженеры DYO контролируют толщину, адгезию и помогают оптимизировать расход материалов на объекте.</p>
                     </div>
                 </div>
+                <div class="section-head advantages-tagline">
+                    <h2>НАШ ПОХОД СНИЖАЕТ РИСКИ И РАСХОДЫ</h2>
+                </div>
             </div>
         </section>
 
         <section class="section" id="process">
             <div class="container">
                 <div class="section-head">
-                    <span class="eyebrow">Сопровождение</span>
                     <h2>Как мы выстраиваем проект</h2>
                 </div>
                 <div class="process">
@@ -320,6 +307,7 @@
 
     <script src="Content/assets/js/jquery-3.4.1.slim.min.js"></script>
     <script src="Content/assets/js/main.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="Content/assets/js/landing.js"></script>
     <script src="Content/assets/js/mobile-nav.js"></script>
     <script src="bundles/jquery3445?v=8Oos0avDZyPg-cbyVzvkIfERIE1DGSe3sRQdCSYrgEQ1"></script>

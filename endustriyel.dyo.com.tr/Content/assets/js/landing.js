@@ -59,6 +59,43 @@
         });
     }
 
+    // Homepage directions slider
+    if (typeof window.Swiper !== 'undefined') {
+        var solutionsSliderEl = document.getElementById('solutions-slider');
+        if (solutionsSliderEl) {
+            new Swiper('#solutions-slider', {
+                slidesPerView: 1,
+                spaceBetween: 16,
+                loop: true,
+                speed: 550,
+                autoplay: {
+                    delay: 4500,
+                    disableOnInteraction: false
+                },
+                navigation: {
+                    nextEl: '.solutions-next',
+                    prevEl: '.solutions-prev'
+                },
+                pagination: {
+                    el: '.solutions-pagination',
+                    clickable: true
+                },
+                breakpoints: {
+                    640: {
+                        slidesPerView: 1,
+                        centeredSlides: false
+                    },
+                    1024: {
+                        slidesPerView: 1
+                    },
+                    1367: {
+                        slidesPerView: 1
+                    }
+                }
+            });
+        }
+    }
+
     // Mobile/Tablet menu functionality is handled by mobile-nav.js
     // This script only handles desktop navigation toggle
 })();
